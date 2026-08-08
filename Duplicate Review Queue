@@ -1,0 +1,11 @@
++--------------------------------------------------------------------------------+
+| DUPLICATE REVIEW                                                                  |
+| Queue: Possible Duplicates | Lead to Contact | Contact to Contact                 |
++--------------------------------------------------------------------------------+
+| LEFT (candidate list)                     | RIGHT (compare view)                  |
+|-------------------------------------------|---------------------------------------|
+| Candidate pair rows                       | Record A vs Record B fields           |
+| Name | Email | Source | Confidence score  | Email, phone, consent, market         |
+|                                           | Purchase totals, last engagement      |
+|                                           | Actions: [Merge] [Keep Separate]      |
++--------------------------------------------------------------------------------+
