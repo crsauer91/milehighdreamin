@@ -1,0 +1,16 @@
++--------------------------------------------------------------------------------+
+| FAN RECORD HEADER                                                               |
+| Name | Fan Tier | True Fan Score | Lifetime Revenue | Last Engagement           |
+| Actions: [Log Purchase] [Add to Campaign] [Create Task] [Create Case]          |
++--------------------------------------------------------------------------------+
+| LEFT COLUMN (65%)                     | RIGHT COLUMN (35%)                      |
+|---------------------------------------|-----------------------------------------|
+| PRIMARY DETAILS                       | HEALTH PANEL                            |
+| - Contact and consent fields          | - Fan Tier indicator                    |
+| - Preferred channel                   | - Lapsed flag                           |
+| - Home market                         | - Membership status and renewal date    |
+|                                       | - VIP eligibility                       |
+| RELATED LISTS                         | NEXT BEST ACTION                        |
+| Tabs: Campaign History | Opportunities| - Suggested follow-up for tier changes  |
+|      Cases | Activities               | - Suggested reactivation for lapsed fan |
++--------------------------------------------------------------------------------+
