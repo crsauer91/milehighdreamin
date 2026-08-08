@@ -1,0 +1,16 @@
++--------------------------------------------------------------------------------+
+| NEW OPPORTUNITY                                                                  |
+| Fan | Stage | Close Date | Revenue Channel | Order Source | Related Campaign      |
++--------------------------------------------------------------------------------+
+| MAIN FORM                                   | SIDEBAR                             |
+|---------------------------------------------|-------------------------------------|
+| Product Line Items                           | Fan Snapshot                        |
+| - Product                                    | - Tier                              |
+| - Quantity                                   | - Lifetime Revenue                  |
+| - Price                                      | - Last Purchase                     |
+|                                              |                                     |
+| Fulfillment Fields                           | Validation Hints                    |
+| Purchase Type, Status                        | Missing required fields             |
+|                                              | Duplicate purchase warning          |
+| Actions: [Save] [Save & New]                 |                                     |
++--------------------------------------------------------------------------------+
