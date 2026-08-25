@@ -7,11 +7,11 @@ Source-controlled Mermaid maps for the Mile High Dreamin Salesforce design. They
 | Phase | Outcome | Maps |
 |---|---|---|
 | 1. Foundation | Trusted fan identity, consent, intake, duplicates, Campaigns, baseline insight | 00-04, 10-11 |
-| 2. Revenue & Segmentation | Products, purchases, fan value, tiers, lapsed fans, support | 05-07, 09-11 |
-| 3. Premium Supporters | Memberships, renewals, VIP targeting, expanded service | 08-10 |
+| 2. Revenue, Segmentation, Membership & Service | Products, purchases, fan value, tiers, lapsed fans, memberships, VIP, and Cases | 05-11 |
+| 3. Stabilization & Adoption | UAT, regression, operating habits, and bounded process refinement | 08-11 |
 | 4. Optimization | Evidence-backed integrations, attribution, scoring, and offers | 12 |
 
-Phases 1 and 2 establish the MVP. Phase 3 and Phase 4 capabilities enter active work only after the preceding phase is stable and the artist can support the operating habit.
+Phases 1 and 2 establish the full MVP, including Membership/VIP and Cases. Phase 3 stabilizes and operationalizes that scope. Phase 4 capabilities enter active work only after the MVP is stable and the artist can support the operating habit.
 
 ## Map index
 
@@ -34,4 +34,3 @@ Phases 1 and 2 establish the MVP. Phase 3 and Phase 4 capabilities enter active 
 The set covers all seven core automations in `01-strategy/02-implementation-plan.md`: New Fan Intake, Lead Conversion Follow-Through, Purchase Update, Fan Tier & Lapsed Evaluation, Campaign Member Follow-Up, Membership Renewal, and Case Triage. It also covers consent, duplicate review, the weekly dashboard ritual, release governance, and the Phase 4 enhancement gate.
 
 The dated PDFs in this folder are retained as legacy visual references. The numbered Markdown files are the maintainable source of truth for future map changes.
-
