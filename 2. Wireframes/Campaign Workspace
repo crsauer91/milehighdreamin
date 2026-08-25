@@ -1,7 +1,7 @@
 +--------------------------------------------------------------------------------+
-| CAMPAIGN HEADER                                                                  |
-| Campaign Name | Type | Date Range | Goal | Target Revenue | Actual Revenue       |
-| Actions: [Add Members] [Update Statuses] [Create Follow-Up Tasks]              |
+| CAMPAIGN HEADER                                                                 |
+| Campaign Name | Type | Date Range | Goal | Target Revenue | Actual Revenue      |
+| Actions: [Add Members] [Update Statuses] [Create Follow-Up Tasks]               |
 +--------------------------------------------------------------------------------+
 | LEFT COLUMN (60%)                     | RIGHT COLUMN (40%)                      |
 |---------------------------------------|-----------------------------------------|
@@ -12,5 +12,5 @@
 |                                       |                                         |
 | MEMBER TABLE                          | QUALITY CHECKS                          |
 | - Name | status | tier | last action  | - Missing source tags                   |
-| - filter by market and engagement     | - Duplicate candidates                   |
+| - filter by market and engagement     | - Duplicate candidates                  |
 +--------------------------------------------------------------------------------+
