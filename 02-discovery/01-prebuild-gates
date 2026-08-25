@@ -1,0 +1,31 @@
+| # | Prebuild Gate | Pass Criteria | Status | Evidence / Decision | Owner |
+|---:|---|---|---|---|---|
+| 1 | MVP scope frozen | MVP backlog approved and explicit out-of-scope list documented |  |  |  |
+| 2 | Enhancement acceptance rule defined | New requests must demonstrate value to revenue, retention, or trust |  |  |  |
+| 3 | No-code-first policy defined | Configuration and Flow are preferred; code requires documented justification |  |  |  |
+| 4 | Salesforce edition confirmed | Required Campaign, Flow, duplicate-management, reporting, and dashboard capabilities verified |  |  |  |
+| 5 | Contact model finalized | Contact versus Person Account strategy documented |  |  |  |
+| 6 | MFA and access controls confirmed | MFA enabled and least-privilege access model validated |  |  |  |
+| 7 | Privacy and data-minimization rules defined | Required PII approved and unnecessary or sensitive data excluded |  |  |  |
+| 8 | Consent model finalized | Consent Status, Source, Date, and channel rules documented |  |  |  |
+| 9 | Retention and deletion process defined | Contact deletion, suppression, and privacy-request procedures documented |  |  |  |
+| 10 | Source data audit completed | Source systems inventoried and sample data quality reviewed |  |  |  |
+| 11 | Value normalization dictionary finalized | Controlled values for sources, channels, markets, campaign types, statuses, and other picklists documented |  |  |  |
+| 12 | Duplicate-management policy finalized | Matching logic, duplicate rules, merge authority, and review cadence documented |  |  |  |
+| 13 | Import templates prepared | CSV templates and field mappings prepared for initial loads |  |  |  |
+| 14 | Revenue object strategy finalized | Salesforce representation of direct purchases and revenue documented |  |  |  |
+| 15 | Revenue definition standardized | Gross/net revenue, refunds, fees, shipping, and reporting treatment documented |  |  |  |
+| 16 | Campaign model finalized | Campaign types, hierarchy, naming, and Campaign Member statuses documented |  |  |  |
+| 17 | Flow design standards defined | Naming, documentation, fault handling, and logging approach documented |  |  |  |
+| 18 | UAT scenarios defined | Tests cover intake, conversion, purchases, campaign response, lapsed-fan logic, and other in-scope processes |  |  |  |
+| 19 | Deployment checklist prepared | Pre-deploy, deployment, and post-deploy smoke-test procedures documented |  |  |  |
+| 20 | Rollback approach documented | Recovery options for failed deployments and bad data loads documented |  |  |  |
+| 21 | Triage responsibilities assigned | Ownership established for duplicates, failed imports, Flow errors, and other exceptions |  |  |  |
+| 22 | Weekly operating ritual defined | Weekly dashboard review and follow-up process documented |  |  |  |
+| 23 | Baseline known fan count captured | Current identified fan count documented |  |  |  |
+| 24 | Baseline direct revenue captured | Current direct revenue by channel documented |  |  |  |
+| 25 | Baseline repeat-buyer count captured | Current repeat-buyer count documented |  |  |  |
+| 26 | Baseline lapsed high-value count captured | Current lapsed high-value supporter count documented |  |  |  |
+| 27 | Baseline campaign conversion captured | Current conversion benchmark documented for at least one campaign type |  |  |  |
+| 28 | Risk register prepared | Major implementation risks, severity, mitigation, ownership, and review dates documented |  |  |  |
+| 29 | Prebuild review completed | All required gates passed or exceptions explicitly accepted before configuration begins |  |  |  |
