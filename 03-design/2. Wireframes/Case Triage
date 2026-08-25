@@ -1,0 +1,46 @@
+# Case Triage
+
+## Purpose
+
+Track order, digital-access, event, membership, and general fan-support issues with standard Cases and a narrow triage Flow.
+
+## Process
+
+```mermaid
+flowchart LR
+  A[Fan issue received] --> B[Create Case and associate fan]
+  B --> C[Capture category, issue type, channel, related order/campaign/membership]
+  C --> D[Case Triage Flow sets priority and owner/queue]
+  D --> E{Urgent or high-value impact?}
+  E -- Yes --> F[Escalate with owned Task and due date]
+  E -- No --> G[Work in support queue]
+  F --> H[Resolve and record outcome]
+  G --> H
+  H --> I[Close Case and update service reports]
+```
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Case header<br/>Number - Fan - Status - Priority - Owner - Age<br/>Actions: Assign - Escalate - Close]
+  H --> D[Issue details<br/>Category - Issue Type - Description - Contact Channel]
+  H --> C[Context<br/>Fan Tier - Membership - Related Opportunity/Product - Campaign/Event]
+  D --> T[Timeline<br/>Activities - handoffs - promised response - resolution]
+  C --> T
+  T --> Q[Queue and SLA view<br/>New - Working - Waiting - Escalated - Resolved]
+```
+
+## Rules
+
+- Use the standard Case object; categories cover Orders, Digital Access, Events, Membership, and General Support.
+- Triage assigns a queue/owner and priority; human judgment handles sensitive/high-value interactions.
+- Do not expose unnecessary PII or payment-card data.
+- A Case links to existing fan, purchase, Campaign, and membership context rather than duplicating it.
+- Faults enter the Operations exception view with an owner and retry guidance.
+
+## Acceptance checks
+
+- New, reassigned, escalated, waiting, resolved, and reopened paths are visible.
+- Open Case age and resolution time reconcile to the Operations Dashboard.
+- Membership, VIP, order, and event issues retain their related business context.

@@ -1,14 +1,37 @@
-+----------------------------------------------+
-| Home                                         |
-+----------------------------------------------+
-| KPI Cards (scroll)                           |
-| [Revenue] [True Fans] [Lapsed] [Cases]       |
-+----------------------------------------------+
-| Priority Actions                             |
-| [Log Purchase] [Follow Up] [Create Case]     |
-+----------------------------------------------+
-| My Priority Lists                            |
-| - Emerging True Fans                          |
-| - Open Cases                                  |
-| - Duplicates                                  |
-+----------------------------------------------+
+# Home
+
+## Purpose
+
+Give the artist or part-time admin a ten-minute operating view of system health, fan relationships, revenue, service, and next actions.
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Home header<br/>MHD workspace - current week<br/>Actions: New Fan - Log Purchase - Create Campaign - Create Case]
+  H --> S[System health strip<br/>Intake failures - unresolved duplicates - import errors - Flow errors - consent exceptions]
+  S --> K[KPI row<br/>Direct Revenue - True Fans - Repeat Buyers - Lapsed High-Value - Renewals Due - Open Cases]
+  K --> P[Priority work<br/>New Fans - Emerging True Fans - Lapsed Fans - Follow-Up Tasks]
+  K --> C[Campaign snapshot<br/>Responses - Attendance - Purchases - Revenue]
+  P --> A[Pick top three actions<br/>Owner - Due Date - Related Fan or Campaign]
+  C --> A
+```
+
+## Primary interactions
+
+- Every KPI opens a governed report or filtered list; no dead-end cards.
+- Trust exceptions appear before business metrics.
+- `New Fan`, `Log Purchase`, and `Create Case` open the corresponding standard-object or Screen Flow experience.
+- `Pick top three actions` creates or assigns Tasks; intimate relationship follow-up remains human.
+
+## States
+
+- **Healthy:** no unresolved trust exceptions; dashboard data is current.
+- **Attention:** exceptions exist but each has an owner and next action.
+- **Unreliable:** failed imports, consent gaps, duplicate backlog, or stale purchase data blocks metric interpretation.
+
+## Acceptance checks
+
+- Weekly review takes ten minutes or less.
+- Every displayed number reconciles to a source report.
+- The user can leave with three owned, dated actions.

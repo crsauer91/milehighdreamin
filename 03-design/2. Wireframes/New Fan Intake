@@ -1,0 +1,54 @@
+# New Fan Intake
+
+## Purpose
+
+Capture or import a fan with controlled identity, source, consent, ownership, and duplicate review before the record becomes a trusted fan profile.
+
+## Process
+
+```mermaid
+flowchart LR
+  A[Web form, CSV import, or manual entry] --> B[Create Lead]
+  B --> C[MHD Lead Intake Screen Flow]
+  C --> D[Stamp source, acquisition channel, owner, and consent defaults]
+  D --> E[Check Lead and fan-profile matches]
+  E --> F{Possible duplicate?}
+  F -- No --> G[Save new Lead]
+  F -- Yes --> H[Show matching records and comparison]
+  H --> I{Decision}
+  I -- Existing person --> J[Use/update existing record]
+  I -- Different person --> G
+  I -- Uncertain --> K[Save and flag for later review]
+  G --> L{Qualified as known fan?}
+  K --> L
+  L -- No --> M[Keep New/Working/Unqualified Lead]
+  L -- Yes --> N[Convert to selected fan-profile model]
+  J --> O[Fan profile ready]
+  N --> O
+```
+
+## Desktop Screen Flow
+
+```mermaid
+flowchart TB
+  H[New Fan Intake<br/>Step indicator - Cancel]
+  H --> I[1 Identity<br/>First Name - Last Name* - Email* - Home Market]
+  I --> S[2 Source<br/>Lead Source* - Acquisition Channel* - Campaign]
+  S --> C[3 Consent<br/>Consent Status - conditional Consent Date/Source - Preferred Channel]
+  C --> D[4 Duplicate Review<br/>matches - signals - acknowledgement - action]
+  D --> R[5 Result<br/>Lead/Contact link - owner - status - next action - errors]
+```
+
+## Rules
+
+- Company is auto-populated with the MHD placeholder; do not ask the fan.
+- Lead lifecycle: `New`, `Working`, `Qualified`, `Unqualified`.
+- If Consent Status is true, Consent Date and Consent Source are required; otherwise they may be blank.
+- Existing email, purchase, attendance, or import never implies affirmative consent.
+- Duplicate warnings allow explicit continuation; no silent creation, automatic block, or merge.
+- Shared fault screen shows `$Flow.FaultMessage` and never claims success after failure.
+
+## Acceptance checks
+
+- Clean, duplicate, Lead-to-Contact, conversion, consent, import, and fault scenarios match the runbook UAT cases.
+- Source, acquisition channel, consent, owner, and campaign context survive conversion.

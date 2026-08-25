@@ -1,16 +1,39 @@
-+--------------------------------------------------------------------------------+
-| FAN RECORD HEADER                                                               |
-| Name | Fan Tier | True Fan Score | Lifetime Revenue | Last Engagement           |
-| Actions: [Log Purchase] [Add to Campaign] [Create Task] [Create Case]          |
-+--------------------------------------------------------------------------------+
-| LEFT COLUMN (65%)                     | RIGHT COLUMN (35%)                      |
-|---------------------------------------|-----------------------------------------|
-| PRIMARY DETAILS                       | HEALTH PANEL                            |
-| - Contact and consent fields          | - Fan Tier indicator                    |
-| - Preferred channel                   | - Lapsed flag                           |
-| - Home market                         | - Membership status and renewal date    |
-|                                       | - VIP eligibility                       |
-| RELATED LISTS                         | NEXT BEST ACTION                        |
-| Tabs: Campaign History | Opportunities| - Suggested follow-up for tier changes  |
-|      Cases | Activities               | - Suggested reactivation for lapsed fan |
-+--------------------------------------------------------------------------------+
+# Fan Record Page
+
+## Purpose
+
+Provide one trustworthy supporter profile for relationship, revenue, membership/VIP, touring, and service decisions.
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Fan header<br/>Name - Fan Tier - True Fan Score - Lifetime Direct Revenue - Last Engagement<br/>Actions: Log Purchase - Add to Campaign - New Task - New Case]
+  H --> L[Primary details<br/>Email - Preferred Channel - Home Market - Interests - Product preferences]
+  H --> R[Health panel<br/>Lapsed Flag - Membership Status/Renewal - VIP Eligible - Next Action]
+  L --> T[Trust panel<br/>Consent Status - Consent Date - Consent Source - Duplicate alert]
+  R --> X[Explain value<br/>First/Last Purchase - score inputs - tier reason - last evaluation]
+  T --> Z[Related tabs<br/>Activity - Campaign History - Opportunities - Cases - Membership/VIP]
+  X --> Z
+```
+
+## Rules
+
+- The selected fan-profile model from prebuild discovery controls whether this is a Contact or Person Account page.
+- Consent is explicit and separate from record existence, purchases, attendance, or engagement.
+- System-maintained revenue, tier, score, and lapsed fields are read-only except for documented overrides.
+- `Possible Duplicate` is visible but does not block work; it opens the Duplicate Review Queue.
+- Membership/VIP fields are visible only when that Phase 3 capability is activated.
+
+## States
+
+- **Listener:** known supporter with no qualifying direct purchase.
+- **Buyer / Repeat Buyer / True Fan / Patron:** increasingly valuable or recurring relationship.
+- **Lapsed:** previously valuable supporter beyond the approved inactivity threshold.
+- **Restricted:** user can view only permitted PII and cannot edit consent or merge records.
+
+## Acceptance checks
+
+- Identity, trust, value, recency, membership/VIP, service, and next action are understandable without searching.
+- Campaigns, purchases, Cases, and Tasks remain connected to the survivor after a merge.
+- Missing data is shown as unknown, never inferred.

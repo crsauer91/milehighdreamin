@@ -37,6 +37,8 @@ Documenting changes in approach given a different artist persona.
 
 Documenting an ideal approach to user experience.
 
+- [Salesforce business-process wireframes](03-design/2.%20Wireframes/README.md)
+
 ## Implementation
 
 Documenting how the plans are put to work. This section may not be fully complete as I overwrote some information on the fly, but a wide majority of it still exists.

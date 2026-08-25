@@ -1,11 +1,35 @@
-+--------------------------------------------------------------------------------+
-| DUPLICATE REVIEW                                                                  |
-| Queue: Possible Duplicates | Lead to Contact | Contact to Contact                 |
-+--------------------------------------------------------------------------------+
-| LEFT (candidate list)                     | RIGHT (compare view)                  |
-|-------------------------------------------|---------------------------------------|
-| Candidate pair rows                       | Record A vs Record B fields           |
-| Name | Email | Source | Confidence score  | Email, phone, consent, market         |
-|                                           | Purchase totals, last engagement      |
-|                                           | Actions: [Merge] [Keep Separate]      |
-+--------------------------------------------------------------------------------+
+# Duplicate Review Queue
+
+## Purpose
+
+Resolve suspected Lead-to-Lead, Contact-to-Contact, and Lead-to-Contact matches without blocking legitimate intake or destroying fan history.
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Possible Duplicates<br/>Filters: pair type - owner - source - age - review status]
+  H --> Q[Candidate list<br/>Name - normalized email - source - created date - matching signals]
+  Q --> C[Side-by-side compare<br/>Identity - consent - campaign history - activity - purchases - revenue - tier]
+  C --> D{Decision}
+  D -- Different people --> K[Keep Separate<br/>record reviewer, date, reason]
+  D -- Same person --> M[Choose survivor and field values]
+  D -- Uncertain --> U[Retain both and flag for later review]
+  M --> X[Confirm merge or Lead conversion/update]
+  X --> V[Verify related history, rollups, tier, lapse, and consent]
+```
+
+## Rules
+
+- Flag, alert, and report; do not automatically block or merge.
+- Normalized email is primary; name supports matching but never proves identity alone.
+- A user continuing intake after a warning acknowledges that the potential duplicate was reviewed.
+- The survivor should have the strongest history and data quality.
+- A merge must never upgrade consent silently.
+- Only authorized users can merge; unresolved ambiguity preserves both records.
+
+## Acceptance checks
+
+- Exact email, case variation, same name/different email, blank email, and shared email are distinguishable.
+- Create, edit, import, and Lead-conversion paths surface expected candidates.
+- Campaigns, Tasks, Cases, Opportunities, revenue, dates, tier, and lapse status remain correct after resolution.

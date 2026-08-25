@@ -1,16 +1,49 @@
-+--------------------------------------------------------------------------------+
-| NEW OPPORTUNITY                                                                  |
-| Fan | Stage | Close Date | Revenue Channel | Order Source | Related Campaign      |
-+--------------------------------------------------------------------------------+
-| MAIN FORM                                   | SIDEBAR                             |
-|---------------------------------------------|-------------------------------------|
-| Product Line Items                           | Fan Snapshot                        |
-| - Product                                    | - Tier                              |
-| - Quantity                                   | - Lifetime Revenue                  |
-| - Price                                      | - Last Purchase                     |
-|                                              |                                     |
-| Fulfillment Fields                           | Validation Hints                    |
-| Purchase Type, Status                        | Missing required fields             |
-|                                              | Duplicate purchase warning          |
-| Actions: [Save] [Save & New]                 |                                     |
-+--------------------------------------------------------------------------------+
+# Opportunity Entry
+
+## Purpose
+
+Record a direct offer purchase with standard Opportunity, Product, Price Book, and Opportunity Product data, then refresh the fan profile without double counting.
+
+## Process
+
+```mermaid
+flowchart LR
+  A[Fan purchases direct offer] --> B[Create Opportunity]
+  B --> C[Associate fan profile]
+  C --> D[Add active Opportunity Products from Standard Price Book]
+  D --> E[Set source, campaign, fulfillment, and Closed Won]
+  E --> F[Purchase Rollup Update Flow]
+  F --> G[Recalculate lifetime revenue and first/last purchase dates]
+  G --> H[Update repeat-buyer indicators]
+  H --> I{Membership or VIP purchase?}
+  I -- Yes --> J[Update membership/VIP status and renewal/fulfillment]
+  I -- No --> K[No supporter-program update]
+  J --> L[Refresh revenue reports and fan-tier evaluation]
+  K --> L
+```
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Opportunity header<br/>Fan - Stage - Amount - Close Date - Revenue Channel - Order Source - Campaign]
+  H --> P[Product line editor<br/>Product - Category - Quantity - Sales Price - Total]
+  H --> F[Fulfillment and purchase details<br/>Status - Purchase Type - external order reference]
+  P --> S[Fan snapshot<br/>Tier - Lifetime Revenue - First/Last Purchase - Membership]
+  F --> V[Validation<br/>Missing required data - line/amount mismatch - possible duplicate transaction]
+  S --> A[Actions: Save - Save and New - Correct/Cancel]
+  V --> A
+```
+
+## Rules
+
+- Stages stay minimal: `Open`, `Closed Won`, `Closed Lost`.
+- Salesforce stores reporting and fulfillment context, never payment-card data.
+- Rollups recalculate from qualifying transactions so edits, cancellations, and Flow retries are idempotent.
+- Membership and VIP products use the same product/revenue model; no custom transaction object is introduced.
+
+## Acceptance checks
+
+- First, repeat, multiline, membership/VIP, corrected, canceled, and retry cases reconcile.
+- Opportunity Amount agrees with line totals where products are used.
+- Contact revenue and purchase dates can be traced to source Opportunities.

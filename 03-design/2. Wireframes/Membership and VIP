@@ -1,0 +1,47 @@
+# Membership and VIP
+
+## Purpose
+
+Support the strategy's lightweight Phase 3 recurring-supporter and VIP process using Contact/Person Account fields, Products, Opportunities, Campaigns, and Tasks—without a custom membership object.
+
+## Process
+
+```mermaid
+flowchart LR
+  A[Membership or VIP offer Campaign] --> B[Add eligible/target fans]
+  B --> C[Fan purchases membership or VIP Product]
+  C --> D[Closed Won Opportunity updates fan profile]
+  D --> E[Set membership tier/status/renewal or VIP fulfillment]
+  E --> F{Renewal approaching or benefit due?}
+  F -- Yes --> G[Create one owned reminder/fulfillment Task]
+  F -- No --> H[Continue active relationship]
+  G --> I[Renew, fulfill, lapse, cancel, or escalate Case]
+  H --> I
+  I --> J[Refresh renewal/churn and supporter reports]
+```
+
+## Desktop wireframe
+
+```mermaid
+flowchart TB
+  H[Supporter Program<br/>Fan - Current Membership Tier - Status - Renewal Date - VIP Eligible]
+  H --> V[Value and eligibility<br/>Fan Tier - True Fan Score - Lifetime Revenue - attendance/engagement]
+  H --> O[Related purchase/offer<br/>Product - Opportunity - Campaign - fulfillment]
+  V --> T[Upcoming work<br/>Renewal reminders - VIP actions - benefit fulfillment - exceptions]
+  O --> T
+  T --> A[Actions<br/>Create Renewal Task - Add to VIP Campaign - Update Status - Create Case]
+```
+
+## Rules
+
+- Activate only when the membership/VIP business model is in scope and prebuild gates pass.
+- Membership values are controlled; purchase and external membership platform remain source evidence.
+- VIP Eligible creates an audience, not an entitlement by itself.
+- One reminder Task per renewal outcome; repeat evaluations must not duplicate work.
+- No payment-card data or unnecessary benefit-detail custom objects.
+
+## Acceptance checks
+
+- New, renewed, lapsed/canceled, VIP purchase, and fulfillment-exception paths are traceable.
+- Renewal/churn reporting reconciles to fan fields and source Opportunities.
+- Fan service issues route to Case Triage without losing membership/purchase context.
