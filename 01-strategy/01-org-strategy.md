@@ -25,11 +25,12 @@ Expand only when demonstrated improvements to **revenue, retention, or trust** j
   
 Assume:  
 * solo artist with limited budget and admin capacity (part-time administration)  
+* implementation in a Salesforce Developer org;  
 * multiple income streams; and at least one source of direct revenue  
 * external commerce, payment, email, ticketing, or membership platforms remain in use.  
   
 Use:  
-* lowest-cost Salesforce edition supporting requirements;  
+* Salesforce Developer org for this implementation;  
 * standard objects;  
 * custom fields only where needed;  
 * Flow;  
@@ -98,6 +99,8 @@ Independent musicians are not one segment. A touring artist, producer selling di
 Persona-specific and business-model-specific extensions should sit on top of the same lean foundation.  
   
 ## Core Data Model  
+
+Use the standard **Account + Contact** model. Contacts are the canonical fan records. Do not enable or use Person Accounts for this implementation. Use one governed household/individual placeholder Account pattern where a Contact does not have a meaningful organization relationship.  
   
 ### Lead  
   
@@ -178,6 +181,12 @@ Key fields:
 * Fulfillment Status  
 * Related Campaign  
 * Purchase Type  
+
+### Direct Revenue Definition
+
+**Direct revenue** is take-home revenue retained by the artist after transaction/platform fees and taxes. Exclude collected taxes, refunded amounts, chargebacks, and payment or marketplace fees. Shipping collected from a fan is excluded unless it exceeds the artist's actual shipping cost; only the retained difference qualifies. Record adjustments consistently so Salesforce reporting reflects the amount the artist keeps, not gross sales volume.
+
+The annual direct-revenue goal is **$100,000**. Dashboards should show year-to-date take-home direct revenue, remaining amount to goal, and progress percentage.
   
 ### Product / Opportunity Product / Price Book  
   
@@ -270,37 +279,26 @@ The system must remain usable by a musician, manager, assistant, or part-time ad
 * modular, loosely coupled architecture;  
 * external IDs/integration keys for incoming data;  
 * replaceable external commerce/email/ticketing platforms;  
-* sandbox-based change management;  
+* documented, test-first change management within the Developer org;  
 * documented deployment;  
 * minimal specialization;  
 * complexity added only after demonstrated need.  
   
-## Key Risks and Mitigations  
-  
+## Risk Management
 
-| Risk | Mitigation |
-| --------------------------- | ------------------------------------------------- |
-| Fragmented source data | Standard imports/source mapping |
-| Duplicate fan records | Matching rules, duplicate rules, merge procedures |
-| Poor consent consistency | Controlled consent/source values |
-| Manual entry does not scale | Precise high-value automation |
-| Failed imports/integrations | Exception ownership and monitoring |
-| Low adoption | Narrow MVP and weekly dashboard ritual |
-| Over-customization | No-code/standard-first policy |
-| Technical debt | Complexity requires demonstrated value |
-| Shelfware | Design around weekly business decisions |
+Record implementation risks in [04-risk-register.md](04-risk-register.md). Keep the register blank until an executor identifies a project-specific risk; do not pre-populate hypothetical risks as accepted facts.
   
   
 ## Dependencies  
   
-* suitable Salesforce org/edition;  
-* Contact vs Person Account decision;  
+* Salesforce Developer org;  
+* standard Account + Contact model;  
 * source fan/revenue data;  
 * defined consent model;  
 * standardized source values;  
 * import discipline;  
 * UAT and prioritization availability;  
-* sandbox/deployment process.  
+* documented Developer-org test, deployment, and rollback process.  
   
 ## MVP Success Criteria  
   
