@@ -2,7 +2,7 @@
 
 ```mermaid
 flowchart TD
-    A([Phase 3 entry approved]) --> B[Define membership products, tiers, benefits, status rules, and owners]
+    A([MVP membership and VIP scope approved]) --> B[Define membership products, tiers, benefits, status rules, and owners]
     B --> C[Enroll supporter from qualifying purchase or approved manual process]
     C --> D[Record tier, status, start date, renewal date, and benefit fulfillment]
     D --> E[Scheduled Membership Renewal evaluation]
@@ -22,4 +22,3 @@ flowchart TD
     O --> Q([Membership and VIP review complete])
     P --> Q
 ```
-
