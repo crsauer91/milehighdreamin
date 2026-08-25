@@ -29,6 +29,8 @@ Documenting the approach of the implementation.
 
 Documenting the research into independent artists.
 
+- [Four-phase Salesforce business process maps](02-discovery/1.%20Business%20Process%20Maps/README.md)
+
 ## Client Briefs
 
 Documenting changes in approach given a different artist persona.
