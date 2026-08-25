@@ -19,7 +19,7 @@ flowchart TD
     subgraph P2[Phase 2 - Revenue and Segmentation]
         G[Configure Products and direct purchases] --> H[Roll up fan revenue and purchase dates]
         H --> I[Evaluate fan tier, score, and lapsed status]
-        I --> J[Operate fan service and weekly retention review]
+        I --> J[Operate membership, VIP, fan service, and weekly retention review]
     end
 
     J --> G2{MVP stable and used consistently?}
@@ -27,13 +27,13 @@ flowchart TD
     R2 --> P2
     G2 -- Yes --> P3
 
-    subgraph P3[Phase 3 - Premium Supporters]
-        K[Add membership and patron programs] --> L[Track renewals and benefits]
-        L --> M[Govern VIP targeting and expanded service]
+    subgraph P3[Phase 3 - Stabilization and Adoption]
+        K[Complete UAT and regression testing] --> L[Establish weekly operating habits]
+        L --> M[Refine in-scope processes without expanding the data model]
     end
 
-    M --> G3{Premium program produces measurable value?}
-    G3 -- No --> R3[Keep the model simple or defer expansion]
+    M --> G3{MVP stable and producing measurable value?}
+    G3 -- No --> R3[Correct adoption, data quality, or process gaps]
     G3 -- Yes --> P4
 
     subgraph P4[Phase 4 - Optimization]
@@ -43,4 +43,3 @@ flowchart TD
 
     P --> Q([Continue evidence-based improvement])
 ```
-
