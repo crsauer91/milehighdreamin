@@ -1,8 +1,6 @@
 # 03-admin-runbook
 
-## Mile High Dreamin Salesforce Admin Playbook
-
-### Purpose
+## Purpose
 
 This playbook defines how the Mile High Dreamin Salesforce proof of concept should be administered after initial configuration.
 
