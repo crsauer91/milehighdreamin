@@ -103,7 +103,7 @@ Weekly business review should take **under 10 minutes**.
 * Campaign framework;  
 * baseline dashboards.  
   
-### Phase 2: Revenue & Segmentation  
+### Phase 2: Revenue, Segmentation, Membership & Service  
   
 * Products;  
 * Opportunities;  
@@ -112,14 +112,17 @@ Weekly business review should take **under 10 minutes**.
 * True Fan scoring;  
 * lapsed-fan detection;  
 * core automation;  
-* support process.  
+* lightweight membership/patron tracking;  
+* VIP eligibility and targeting;  
+* renewal tracking;  
+* Case intake, triage, and resolution.  
   
-### Phase 3: Premium Supporters
+### Phase 3: Stabilization & Adoption
   
-* membership/patron programs;  
-* VIP targeting;  
-* renewal/benefit tracking;  
-* expanded supporter service.  
+* stabilize all MVP automation and reporting;  
+* complete UAT and regression testing;  
+* establish weekly operating habits;  
+* refine membership, VIP, and Case processes without expanding the data model.  
   
 ### Phase 4: Optimization  
   
@@ -194,7 +197,7 @@ The MVP should support seven functional areas:
     * metrics clearly defined;  
     * dashboard review under 10 minutes;  
     * naming conventions;  
-    * sandbox testing;  
+    * Developer-org testing;  
     * documented recurring processes.  
   
 ## Engagement Approach  
