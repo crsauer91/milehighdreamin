@@ -4,28 +4,28 @@ Desktop-first, low-fidelity wireframes for every functional area in the broad Mi
 
 ## Index
 
-1. [Home](Home) - weekly system-health and action workspace.
-2. [Fan Record Page](Fan%20Record%20Page) - canonical supporter profile and related history.
-3. [New Fan Intake](New%20Fan%20Intake) - capture, consent, source, duplicate check, and conversion.
-4. [Duplicate Review Queue](Duplicate%20Review%20Queue) - flag-not-block comparison and manual resolution.
-5. [Campaign Workspace](Campaign%20Workspace) - release, tour, show, merch, crowdfunding, fan-club, and VIP audience operations.
-6. [Opportunity Entry](Opportunity%20Entry) - products, purchases, fulfillment, rollups, and supporter-program updates.
-7. [Fan Tier and Reactivation](Fan%20Tier%20and%20Reactivation) - tier/score/lapse evaluation and selective follow-up.
-8. [Membership and VIP](Membership%20and%20VIP) - Phase 3 renewals, eligibility, offers, and fulfillment.
-9. [Case Triage](Case%20Triage) - fan service assignment, escalation, resolution, and reporting.
-10. [Reports and Dashboard Drilldown](Reports%20and%20Dashboard%20Drilldown) - weekly, campaign, and operations insight.
+1. [Fan Record Page](01-fan-record-page) - canonical supporter profile and related history.
+2. [Duplicate Review Queue](02-duplicate-review-queue) - flag-not-block comparison and manual resolution.
+3. [New Fan Intake](03-new-fan-intake) - capture, consent, source, duplicate check, and conversion.
+4. [Campaign Workspace](04-campaign-workspace) - release, tour, show, merch, crowdfunding, fan-club, and VIP audience operations.
+5. [Opportunity Entry](05-opportunity-entry) - products, purchases, fulfillment, rollups, and supporter-program updates.
+6. [Fan Tier and Reactivation](06-fan-tier-and-reactivation) - tier/score/lapse evaluation and selective follow-up.
+7. [Membership and VIP](07-membership-and-vip) - Phase 3 renewals, eligibility, offers, and fulfillment.
+8. [Case Triage](08-case-triage) - fan service assignment, escalation, resolution, and reporting.
+9. [Reports and Dashboard Drilldown](09-reports-and-dashboard-drilldown) - weekly, campaign, and operations insight.
+10. [Home](10-home) - weekly system-health and action workspace.
 
 ## Business-process coverage
 
 | Strategy outcome | Primary wireframes | Existing process-map source |
 |---|---|---|
-| Fan Identity & Trust | New Fan Intake; Duplicate Review Queue; Fan Record Page | [Fan Intake Lead Management](../../02-discovery/1.%20Business%20Process%20Maps/Fan%20Intake%20Lead%20Management-2026-08-08-174014.pdf) |
-| Fan Tiering | Fan Record Page; Fan Tier and Reactivation | [Fan Tier Assessment Pipeline](../../02-discovery/1.%20Business%20Process%20Maps/Fan%20Tier%20Assessment%20Pipeline-2026-08-08-174531.pdf) |
-| Campaigns & Revenue | Campaign Workspace; Opportunity Entry | [Campaign Audience](../../02-discovery/1.%20Business%20Process%20Maps/Campaign%20Audience-2026-08-08-174203.pdf); [Direct Offer Purchase](../../02-discovery/1.%20Business%20Process%20Maps/Direct%20Offer%20Purchase-2026-08-08-174329.pdf) |
+| Fan Identity & Trust | New Fan Intake; Duplicate Review Queue; Fan Record Page | [Fan Intake Lead Management](../../02-discovery/01-business-process-maps/01-fan-intake-lead-management.md) |
+| Fan Tiering | Fan Record Page; Fan Tier and Reactivation | [Fan Tier Assessment Pipeline](../../02-discovery/01-business-process-maps/06-fan-tier-lapsed-evaluation.md) |
+| Campaigns & Revenue | Campaign Workspace; Opportunity Entry | [Campaign Audience](../../02-discovery/01-business-process-maps/04-campaign-audience-follow-up.md); [Direct Offer Purchase](../../02-discovery/01-business-process-maps/05-direct-offer-purchase.md) |
 | Membership/VIP | Membership and VIP; Opportunity Entry; Campaign Workspace | Strategy and implementation plan |
 | Touring & Activation | Campaign Workspace; Fan Record Page; Reports and Dashboard Drilldown | Campaign Audience |
 | Service & Retention | Case Triage; Fan Tier and Reactivation | Strategy and implementation plan |
-| Governance & Insight | Home; Reports and Dashboard Drilldown | [Artist Revenue Review](../../02-discovery/1.%20Business%20Process%20Maps/Artist%20Revenue%20Review-2026-08-08-174654.pdf) |
+| Governance & Insight | Home; Reports and Dashboard Drilldown | [Artist Revenue Review](../../02-discovery/01-business-process-maps/10-weekly-artist-review.md) |
 
 ## Shared design rules
 

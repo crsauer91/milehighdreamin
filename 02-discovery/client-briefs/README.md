@@ -6,7 +6,7 @@ This directory contains separate client briefs for different artist personas and
 
 ## How To Use These Briefs
 
-1. Start with the [general solution brief](general-solution-brief.md).
+1. Start with the [general solution brief](01-general-solution-brief.md).
 2. Select the closest artist persona brief.
 3. Select the closest revenue model brief.
 4. Combine the two to tailor discovery, scope, and KPI priorities.
@@ -15,20 +15,20 @@ If a client spans multiple models, use the dominant revenue motion first and add
 
 ## Persona Briefs
 
-- [Composer and Multi-Hyphenate Musician](personas/composer-multi-hyphenate.md)
-- [DIY Band](personas/diy-band.md)
-- [Online Niche Creator](personas/online-niche-creator.md)
-- [Producer or DJ](personas/producer-dj.md)
-- [Touring Singer-Songwriter](personas/touring-singer-songwriter.md)
+- [Touring Singer-Songwriter](personas/01-touring-singer-songwriter.md)
+- [DIY Band](personas/02-diy-band.md)
+- [Producer or DJ](personas/03-producer-dj.md)
+- [Online Niche Creator](personas/04-online-niche-creator.md)
+- [Composer and Multi-Hyphenate Musician](personas/05-composer-multi-hyphenate.md)
 
 ## Business Model Briefs
 
-- [Crowdfunding First](business-models/crowdfunding-first.md)
-- [Membership First](business-models/membership-first.md)
-- [Merch First](business-models/merch-first.md)
-- [Sync and Licensing First](business-models/sync-licensing-first.md)
-- [Teaching and Community First](business-models/teaching-community-first.md)
-- [Touring First](business-models/touring-first.md)
+- [Touring First](business-models/01-touring-first.md)
+- [Merch First](business-models/02-merch-first.md)
+- [Membership First](business-models/03-membership-first.md)
+- [Crowdfunding First](business-models/04-crowdfunding-first.md)
+- [Sync and Licensing First](business-models/05-sync-licensing-first.md)
+- [Teaching and Community First](business-models/06-teaching-community-first.md)
 
 ## Recommended Pattern Combinations
 
