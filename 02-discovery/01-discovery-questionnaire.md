@@ -1,4 +1,4 @@
-# 02-discovery-questionnaire
+# Discovery Questionnaire
 
 ## Purpose  
   
