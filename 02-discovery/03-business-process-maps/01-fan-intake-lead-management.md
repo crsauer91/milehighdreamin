@@ -2,14 +2,16 @@
 
 ```mermaid
 flowchart TD
-    A([Fan submits a form or is imported]) --> B{Approved intake source?}
-    B -- No --> C[Route source decision to admin]
-    B -- Yes --> D[Capture name, email, source, channel, consent, and optional market]
-    D --> E{Required values valid?}
-    E -- No --> F[Show actionable error and retain input]
-    E -- Yes --> G[Create Lead with status New]
-    G --> H[Run MHD Lead Intake Flow]
-    H --> I[Normalize and stamp source values]
+    A([Fan intake begins]) --> B{Channel?}
+    B -- Manual --> C[MHD - Lead - Intake Screen Flow]
+    B -- Web --> D[Web-to-Lead or approved integration]
+    B -- Import/API --> E[Validated import process]
+    C --> F[Validate, normalize, review duplicates, then create Lead]
+    D --> G[Create Lead with status New]
+    E --> G
+    F --> H[Lead created with status New]
+    G --> H
+    H --> I[Run record-triggered consent, source, ownership, and exception controls]
     I --> J[Check Lead-to-Lead and Lead-to-Contact matches]
     J --> K{Possible duplicate?}
     K -- Yes --> L[Alert and route to human duplicate review]
@@ -27,4 +29,3 @@ flowchart TD
     O --> V
     V --> W([Contact is canonical fan record])
 ```
-
