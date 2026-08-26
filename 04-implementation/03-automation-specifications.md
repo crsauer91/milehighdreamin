@@ -6,10 +6,10 @@ Every automation must document owner, trigger, entry and exit criteria, dependen
 
 | Outcome | Required behavior | Idempotency and exception checks |
 |---|---|---|
-| New Fan Intake | Normalize standard `LeadSource`, preserve explicit consent, assign owner, surface duplicates | `Source_Record_Key__c` prevents repeat creation; actionable faults create one `Exception - Intake` Task |
+| New Fan Intake | Manual Screen Flow validates/normalizes/reviews duplicates before Lead creation; Web/import/API create Leads without the Screen Flow and then run record-triggered consent, source, ownership, and duplicate controls | `Source_Record_Key__c` prevents repeat creation; actionable faults create one `Exception - Intake` Task |
 | Lead Conversion Follow-Through | Run only after first qualifying sale; use **None** Account; initialize Contact; relate purchase and primary OCR; create one follow-up | Conversion or retry cannot create a second Contact, OCR, or open follow-up Task |
 | Consent Validation | Separate Lead and Contact implementations require source/date for affirmative consent and preserve opt-outs | Never infer consent; failed action creates one related exception Task when human work is needed |
-| Purchase Update | Normalize net Amount; maintain revenue, purchase dates/count, repeat-buyer and applicable membership fields | External order key makes create/update/refund/correction safe to rerun; rollups do not double count |
+| Purchase Update | Normalize net Amount; preserve original sales; process post-sale refunds/corrections as separate negative adjustment Opportunities; maintain revenue, purchase dates/count, repeat-buyer and applicable membership fields | Original and adjustment external keys make upserts safe to rerun; rollups sum originals plus adjustments without double counting |
 | Fan Tier Evaluation | Apply only approved inputs, weights, windows, caps, blanks, and thresholds | Same inputs yield same tier; field history records actual changes; unresolved rules block activation |
 | Lapsed Fan Evaluation | Apply approved inactivity, high-value, recovery, and scheduling rules independently of tier | Re-evaluation does not duplicate work; unresolved rules block activation |
 | Campaign Member Follow-Up | Create governed actions for significant responses | One open Task per member/outcome/window; no Task for unapproved or nonconsented outreach |
