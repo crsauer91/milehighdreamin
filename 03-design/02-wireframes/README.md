@@ -36,7 +36,7 @@ Desktop-first, low-fidelity wireframes for the principal operational experiences
 - Suspected duplicates alert, save, report, and route to human review; do not automatically merge or block.
 - Standard objects first: Account, Lead, Contact, Campaign, Campaign Member, Opportunity, Opportunity Contact Role, Opportunity Product, Product, Price Book, Case, and Task.
 - Lapsed is a separate flag, not a Fan Tier value.
-- Keep one automation outcome per Flow where practical; each has a description, test evidence, and fault path.
+- Preserve nine narrow business outcomes, not necessarily nine Flow definitions; each implementation has a description, owner, test evidence, and fault path.
 - External platforms may remain systems of record; Salesforce owns the relationship view and only the data needed for decisions.
 - Every dashboard or score must drill down to understandable source records and a human action.
 
