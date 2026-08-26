@@ -86,7 +86,7 @@ Do not create a custom review object unless testing proves standard Duplicate Re
 ## Tier, lapse, and history
 
 - `Fan_Tier__c` stores the current tier; `Lapsed_Fan_Flag__c` remains independent.
-- No manual override controls are in MVP because Strategy/Discovery define no persistence fields or approval model. Correct source data or documented thresholds, then rerun evaluation.
+- No manual override controls are in MVP because Strategy/Discovery define no persistence fields or approval model. The implementation decision gate must approve inputs, weights, qualifying spend, thresholds, windows, caps, blank handling, transition/recovery rules, cadence, owner, and tests before tier or lapse automation is activated. Correct source data or approved rules, then rerun evaluation. Do not invent values.
 - Enable Contact Field History Tracking for `Fan_Tier__c` (and `Lapsed_Fan_Flag__c` where useful). Tier history supplies transition date, old value, new value, and user/process identity without a custom object.
 - **True Fan emergence** is measured from spend evidence: count distinct Contacts whose qualifying cumulative direct spend causes a tracked transition into True Fan or Patron during the period. The tier threshold must be documented before activation.
 - **Fan growth** is the change in canonical fan count: ending Contact count minus beginning Contact count. Use report snapshots when a historical beginning balance is not otherwise reproducible.
