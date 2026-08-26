@@ -1,0 +1,32 @@
+name: Documentation QA
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v20
+        with:
+          globs: "**/*.md"
+      - name: Check Markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --accept 200,429 "**/*.md"
+          fail: true
+      - name: Extract and validate Mermaid diagrams
+        shell: bash
+        run: |
+          mkdir -p /tmp/mhd-mermaid
+          node scripts/extract-mermaid.mjs /tmp/mhd-mermaid
+          for file in /tmp/mhd-mermaid/*.mmd; do
+            npx --yes @mermaid-js/mermaid-cli@11 -i "$file" -o "${file%.mmd}.svg"
+          done
