@@ -121,7 +121,6 @@ Retain standard city, state, postal code, and country information separately whe
 | Company | Salesforce-required Lead value where applicable | Auto-populate with the MHD standard placeholder rather than asking the fan |
 | Lead Status | Intake lifecycle | Use controlled lifecycle below |
 | Lead Source | High-level origin | Required during controlled intake |
-| Acquisition Channel | Marketing/acquisition classification | Controlled value |
 | Consent Status | Initial consent state | Default False |
 | Consent Date | Consent timestamp/date | Required only when opted in |
 | Consent Source | Consent provenance | Required only when opted in |
@@ -155,7 +154,7 @@ Document the reason for unusual disqualifications in an appropriate existing not
 
 ---
 
-## 1.5 Acquisition / Lead Source Standard
+## 1.5 Lead Source Standard
 
 Use a small controlled list.
 
@@ -223,6 +222,8 @@ Use these Campaign Type values:
 - Crowdfunding
 - Fan Club
 - VIP Offer
+
+Represent livestreams as `Show` unless an approved reporting requirement demonstrates that a separate `Livestream` value answers a distinct business question.
 
 Do not create a new Campaign Type merely because a campaign feels slightly different from the previous one.
 
@@ -337,7 +338,7 @@ Expose:
 
 `{!$Flow.FaultMessage}`
 
-Administrators should capture the fault message before retrying or manually modifying records.
+Administrators should capture the fault message before retrying or manually modifying records. When human action is required, the fault path creates one idempotent owned `Exception - Flow` Task; automated-process email and logs remain diagnostic evidence.
 
 ---
 
@@ -990,7 +991,7 @@ Classify operational issues as:
 
 Do not create a custom object solely to track these during the POC unless the volume proves it necessary.
 
-A simple admin log or project issue tracker is sufficient.
+Actionable Salesforce exceptions use owned Tasks with controlled subjects `Exception - Flow`, `Exception - Intake`, or `Exception - Import`, a due date, related record where available, concise error, retry guidance, and a run/batch or source key that prevents duplicate open Tasks. Implementation defects in configuration, metadata, tests, or deployment belong in the external project issue tracker.
 
 ---
 
