@@ -1,4 +1,6 @@
 # 02-implementation-plan  
+
+[Strategy index](README.md) · [Org strategy](01-org-strategy.md) · [Admin runbook](03-admin-runbook-mile-high-dreamin-admin-playbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
   
 ## Core Automation  
   
@@ -10,6 +12,8 @@ Keep Flows narrow: **one business outcome per automation where practical.**
     * assign ownership;  
     * flag duplicates.  
 2. **Lead Conversion Follow-Through**  
+    * run only after the first qualifying sale;  
+    * associate an ordinary fan with the existing **None** Account;  
     * initialize fan profile/tier/score;  
     * create welcome or follow-up action.  
 3. **Purchase Update**  
