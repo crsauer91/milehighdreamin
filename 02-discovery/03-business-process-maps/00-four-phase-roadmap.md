@@ -16,14 +16,14 @@ flowchart TD
     R1 --> P1
     G1 -- Yes --> P2
 
-    subgraph P2[Phase 2 - Revenue and Segmentation]
+    subgraph P2[Phase 2 - Revenue, Segmentation, Membership and Service]
         G[Configure Products and direct purchases] --> H[Roll up fan revenue and purchase dates]
         H --> I[Evaluate fan tier, score, and lapsed status]
         I --> J[Operate membership, VIP, fan service, and weekly retention review]
     end
 
-    J --> G2{MVP stable and used consistently?}
-    G2 -- No --> R2[Stabilize automation, reporting, and operating habits]
+    J --> G2{Core MVP configured?}
+    G2 -- No --> R2[Complete or correct in-scope configuration]
     R2 --> P2
     G2 -- Yes --> P3
 

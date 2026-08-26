@@ -26,7 +26,7 @@ flowchart LR
 flowchart TB
   H[Segmentation review<br/>Filters: tier - lapsed - market - membership - owner]
   H --> Q[Fan queue<br/>Fan - Tier - Score - Revenue - Last Purchase - Last Engagement - Lapsed]
-  Q --> E[Why this result?<br/>inputs - thresholds - missing data - evaluation time - override]
+  Q --> E[Why this result?<br/>inputs - thresholds - missing data - evaluation time - correction path]
   E --> A[Actions<br/>Create Task - Add to Campaign - Open Fan - Correct Source Data]
 ```
 

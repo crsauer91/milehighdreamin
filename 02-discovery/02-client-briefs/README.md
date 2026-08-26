@@ -1,4 +1,4 @@
-# MHD Client Briefs: Musician Archetypes
+# MHD Client Briefs: Musician Personas and Business Models
 
 ## Purpose
 

@@ -45,5 +45,5 @@ flowchart TB
 - Unattributed revenue, refunds/cancellations, and test records are explicit.
 - Every dashboard total reconciles to source reports and sample records.
 - Drill-down always ends in a record or owned action.
-- Historical fan counts use report snapshots when needed; tier transitions use Contact field history.
+- Historical fan counts use native reporting where reproducible. A Salesforce Reporting Snapshot is used only after explicit approval of its required custom target object; tier transitions use Contact field history plus the approved secured export when the analysis horizon requires it.
 - Import, intake, and Flow exceptions drill to controlled-subject Tasks rather than unpersisted error messages.

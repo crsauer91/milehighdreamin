@@ -26,12 +26,15 @@ Align Salesforce scope to the operating reality of an independent musician. Comb
 | Fan support issue | Case | Standard service workflow |
 | High-touch follow-up | Task | Simple and maintainable |
 
-## Core Flow Recommendations
+## Automation emphasis
 
-| Flow | Use In | Purpose |
+The [implementation plan](../../01-strategy/02-implementation-plan.md) and [automation specifications](../../04-implementation/03-automation-specifications.md) define nine business outcomes, not necessarily nine Flow definitions. These patterns emphasize the following approved outcomes; they do not replace or combine the authoritative inventory.
+
+| Business outcome | Use In | Purpose |
 | --- | --- | --- |
 | Purchase Rollup Update | All revenue-tracking patterns | Update direct revenue, purchase dates, and repeat-buyer status |
-| Fan Tier and Lapsed Fan Evaluation | All fan-development patterns | Identify true fans and at-risk supporters |
+| Fan Tier Evaluation | All fan-development patterns | Identify relationship/value tier using approved rules |
+| Lapsed Fan Evaluation | Retention-focused patterns | Identify at-risk supporters independently of tier |
 | Campaign Member Follow-Up | Touring, crowdfunding, VIP, and community patterns | Act on attendance, backing, or campaign response |
 | Membership Renewal Reminder | Membership and community patterns | Protect recurring revenue |
 | Case Triage | Merch, service, and community patterns | Maintain fan trust through support handling |

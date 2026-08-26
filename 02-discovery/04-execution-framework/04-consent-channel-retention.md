@@ -10,6 +10,8 @@ This is a reusable operational default, not a universal legal conclusion. Each e
 - Checkout consent is valid only when the fan separately and affirmatively opted in.
 - Preferred_Channel__c records preference, not legal permission.
 - Withdrawal sets Consent_Status__c to FALSE immediately, preserves minimal historical evidence, and does not automatically delete financial or service records.
+- Enable field history for Consent Status, Date, and Source on Lead and Contact. History must capture old/new value, actor/process, and timestamp; do not clear the prior Date or Source merely because current Status becomes FALSE.
+- Standard field history is the near-term evidence layer. When the approved evidence period exceeds the org's available history retention, export the minimum consent-event evidence to an approved secured archive before expiry. A custom consent object or platform requires a separate proven need and approval.
 - Marketing audiences require affirmative consent and must exclude applicable standard opt-out flags.
 
 ## Channel decision

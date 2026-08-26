@@ -1,6 +1,6 @@
 # Field Mappings
 
-The import templates use Salesforce API names. **Standard** means available on the named standard object. **Custom** means configure the field before importing. Confirm API names in the target org; do not change template headers silently. Standard `LeadSource` is the single acquisition-source field; add no `Acquisition_Channel__c` unless an approved, separately defined business question requires it.
+The import templates use Salesforce API names. **Standard** means available on the named standard object. **Custom** means configure the field before importing. Confirm API names in the target org; do not change template headers silently. Standard `LeadSource` is the single acquisition-source field; do not create `Acquisition_Channel__c`.
 
 ## Template column map
 
@@ -66,7 +66,7 @@ The import templates use Salesforce API names. **Standard** means available on t
 | Goal__c | Text(255) | One measurable operational objective |
 | Primary_Offer__c | Lookup(Product2) | Optional |
 | Direct_Revenue_Target__c | Currency(16,2) | Optional |
-| Actual_Direct_Revenue__c | Currency(16,2) | Flow/report-maintained where used |
+| Actual_Direct_Revenue__c | Currency(16,2) | Flow-maintained only when an operational stored value is required; otherwise calculate from related Opportunities in reports |
 | Source_Record_Key__c | Text(255), External ID, Unique | Optional external campaign key |
 
 ### Opportunity

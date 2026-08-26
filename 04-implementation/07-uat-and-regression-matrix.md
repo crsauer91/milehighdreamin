@@ -8,11 +8,11 @@ Copy this matrix to the secured workspace and add test data, expected results, t
 | Source/consent | each `LeadSource`; affirmative consent with source/date; missing evidence; opt-out preservation; no inferred consent |
 | Duplicates | Lead-to-Lead, Contact-to-Contact, Lead-to-Contact; keep separate; merge; conversion; manual and noninteractive behavior |
 | Channels | manual, Screen Flow, Web-to-Lead, Data Import Wizard/Data Loader, API/import integration, bulk/scheduled |
-| Revenue | six inputs; zero/negative values; refund/correction; Amount reconciliation; product lines; zero-line allocation; rounding |
+| Revenue | six inputs; original sale preserved; separate related negative refund/adjustment; stable adjustment key; retry; Amount reconciliation; product lines; zero-line allocation; rounding |
 | OCR | exactly one primary purchasing-fan Opportunity Contact Role; retry; Contact attribution; no double counting |
 | Tier/history | approved boundary values; blanks/caps/windows; Buyer to Repeat Buyer to True Fan/Patron; old/new history and emergence report |
 | Lapse | approved inactivity boundary, recovery, independent tier behavior, repeat scheduled execution |
-| Fan Growth | beginning/ending balances, snapshot or approved method, backdated/corrected record handling |
+| Fan Growth | beginning/ending balances; native method or approved Reporting Snapshot custom target object; backdated/corrected record handling |
 | Campaigns | hierarchy, statuses, livestream as `Show`, response, attendance, follow-up, revenue attribution |
 | Membership/VIP | approved status, eligibility, renewal boundary, one reminder per period; blocked until rules approved |
 | Cases | intake, assignment, priority, next action/due date, escalation, closure, security |

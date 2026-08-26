@@ -43,14 +43,15 @@ The nine automations are **business outcomes, not necessarily nine Flow definiti
 9. [Rollback checklist](09-rollback-checklist.md)
 10. [Implementation evidence index](10-implementation-evidence-index.md)
 
-## Framework decisions
+## Decision-register implementation notes
 
-- Standard `LeadSource` is the single acquisition-source field. Add a separate field only for a clearly defined, approved, reportable business question.
-- Livestream Campaigns use Type `Show` unless reporting proves a distinct Type is needed.
-- Actionable Salesforce exceptions use owned Tasks; implementation defects use the external issue tracker.
-- Tier, lapse, VIP, and renewal values remain unactivated until their decision gates define inputs, thresholds, windows, blank handling, recovery, cadence, ownership, and evidence.
-- Purchase processing requires net-revenue normalization, one primary purchasing-fan Opportunity Contact Role, stable external keys, and idempotent retries.
-- Tier history and fan-growth persistence are explicit build and reporting decisions.
+These notes apply the authoritative [Decision Register](../01-strategy/05-decision-register.md); they do not create additional decisions.
+
+- Apply DEC-016 through DEC-019 for `LeadSource`, livestream=`Show`, exception Tasks, primary purchasing-fan OCRs, stable keys, and idempotency.
+- Keep tier, lapse, VIP, and renewal automation inactive until Gate 32/33 defines inputs, thresholds, windows, blanks, recovery, cadence, ownership, and evidence.
+- Apply DEC-014 and DEC-020 for consent and tier history retention/secured export.
+- Apply DEC-021 before configuring a Reporting Snapshot because it requires a custom target object.
+- Apply DEC-015 for separate related negative refund/adjustment Opportunities.
 
 ## Definition of done
 

@@ -15,7 +15,7 @@ Use this dependency order only after all required [prebuild gates](../02-discove
 - [ ] Configure least-privilege access, MFA, queues, sharing, object/field permissions, and sensitive-data restrictions.
 - [ ] Configure controlled values, fields, layouts, validation, list views, and ownership.
 - [ ] Configure Lead-to-Lead, Contact-to-Contact, and Lead-to-Contact matching and duplicate rules as **Allow + Alert** where supported.
-- [ ] Confirm standard `LeadSource` is the acquisition source; do not create `Acquisition_Channel__c` unless a separately approved business question requires it.
+- [ ] Confirm standard `LeadSource` is the sole acquisition source; do not create `Acquisition_Channel__c`.
 
 ## 3. Campaign, revenue, and service
 
@@ -23,6 +23,7 @@ Use this dependency order only after all required [prebuild gates](../02-discove
 - [ ] Treat livestreams as Campaign Type `Show` unless approved reporting proves a separate `Livestream` value is necessary.
 - [ ] Require one primary purchasing-fan Opportunity Contact Role for every ordinary fan purchase.
 - [ ] Configure and reconcile all six revenue-normalization inputs and net Opportunity Amount.
+- [ ] Preserve original sales and configure separate related negative `Refund / Adjustment` Opportunities with stable adjustment keys and idempotent rollups.
 - [ ] Prove Direct Revenue by Product with standard reporting; if insufficient, document the smallest derived allocation solution before building it.
 
 ## 4. Data and automation
@@ -34,8 +35,8 @@ Use this dependency order only after all required [prebuild gates](../02-discove
 
 ## 5. History, reporting, and release
 
-- [ ] Enable Contact Field History Tracking for `Fan_Tier__c` and assess `Lapsed_Fan_Flag__c`.
-- [ ] Select and document the historical fan-count method; use reporting snapshots when beginning balances are not reproducible.
+- [ ] Enable history for Lead/Contact consent fields and Contact `Fan_Tier__c`; assess `Lapsed_Fan_Flag__c`; configure approved secured exports before required evidence exceeds available retention.
+- [ ] Select and document the historical fan-count method; explicitly approve the required custom target object before using a Salesforce Reporting Snapshot.
 - [ ] Build and reconcile governed reports, dashboards, and drill-downs.
 - [ ] Complete security validation, channel-specific UAT/regression, deployment, smoke testing, and rollback rehearsal.
 - [ ] Index evidence, record accepted exceptions, and hand the completed org to the [admin runbook](../01-strategy/03-admin-runbook.md).
