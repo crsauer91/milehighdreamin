@@ -27,6 +27,7 @@ flowchart TB
 - Membership/VIP fields are part of the Phase 2 MVP and are shown when that business motion is configured.
 - Membership/VIP is a panel backed by Contact fields and standard related records, not a custom related object.
 - Fan Tier field history preserves tier transitions for emergence reporting.
+- `Next Action` is the nearest open Task's governed subject/due work, not a Contact field. `Tier reason` is an explanatory display derived from approved evaluation inputs and thresholds. `Last evaluation` is the most recent Flow run/change evidence available to the page; none of these labels authorizes new persistence fields.
 
 ## States
 
