@@ -27,7 +27,7 @@ flowchart TB
   H[Segmentation review<br/>Filters: tier - lapsed - market - membership - owner]
   H --> Q[Fan queue<br/>Fan - Tier - Score - Revenue - Last Purchase - Last Engagement - Lapsed]
   Q --> E[Why this result?<br/>inputs - thresholds - missing data - evaluation time - override]
-  E --> A[Actions<br/>Create Task - Add to Campaign - Open Fan - Authorized Override]
+  E --> A[Actions<br/>Create Task - Add to Campaign - Open Fan - Correct Source Data]
 ```
 
 ## Rules
@@ -35,7 +35,8 @@ flowchart TB
 - Fan Tier summarizes the relationship; True Fan Score remains a supporting, explainable indicator rather than predictive AI.
 - Thresholds use only reliably maintained data and cover blanks, boundaries, and never-purchased/never-engaged fans.
 - Repeated runs are safe and do not duplicate Tasks or Campaign Members.
-- Authorized overrides require reason and review date; automatic values remain visible.
+- Manual tier overrides are not in MVP because no approved persistence or authorization model exists. Correct governed source data or thresholds and rerun evaluation.
+- Contact Field History Tracking preserves `Fan_Tier__c` transitions; emergence into True Fan or Patron is tied to the qualifying cumulative-spend change.
 - Reactivation remains selective and personal, not bulk spam.
 
 ## Acceptance checks
@@ -43,3 +44,4 @@ flowchart TB
 - Test fans at every boundary produce expected tier and lapse outcomes.
 - First/repeat purchase and membership status changes refresh the appropriate evaluation.
 - The lapsed queue supports a small, owned next action.
+- Tier-change history identifies who crossed the spend threshold during the reporting period.

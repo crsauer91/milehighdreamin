@@ -13,7 +13,8 @@ flowchart TB
   H --> R[Health panel<br/>Lapsed Flag - Membership Status/Renewal - VIP Eligible - Next Action]
   L --> T[Trust panel<br/>Consent Status - Consent Date - Consent Source - Duplicate alert]
   R --> X[Explain value<br/>First/Last Purchase - score inputs - tier reason - last evaluation]
-  T --> Z[Related tabs<br/>Activity - Campaign History - Opportunities - Cases - Membership/VIP]
+  T --> Z[Related tabs<br/>Activity - Campaign History - Opportunities - Cases]
+  R --> M[Membership/VIP panel<br/>Tier - Status - Renewal Date - Eligibility - related offer/purchase]
   X --> Z
 ```
 
@@ -21,9 +22,11 @@ flowchart TB
 
 - This is a Contact page. Ordinary fan Contacts use the shared **None** Account; business or organizational relationships may use another Account.
 - Consent is explicit and separate from record existence, purchases, attendance, or engagement.
-- System-maintained revenue, tier, score, and lapsed fields are read-only except for documented overrides.
+- System-maintained revenue, tier, score, and lapsed fields are read-only. Correct source data or documented thresholds, then rerun evaluation.
 - `Possible Duplicate` is visible but does not block work; it opens the Duplicate Review Queue.
 - Membership/VIP fields are part of the Phase 2 MVP and are shown when that business motion is configured.
+- Membership/VIP is a panel backed by Contact fields and standard related records, not a custom related object.
+- Fan Tier field history preserves tier transitions for emergence reporting.
 
 ## States
 

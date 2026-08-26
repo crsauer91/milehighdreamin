@@ -8,13 +8,13 @@ Resolve suspected Lead-to-Lead, Contact-to-Contact, and Lead-to-Contact matches 
 
 ```mermaid
 flowchart TB
-  H[Possible Duplicates<br/>Filters: pair type - owner - source - age - review status]
+  H[Possible Duplicates<br/>Duplicate Record Sets + review Tasks<br/>Filters: pair type - owner - source - age - Task status]
   H --> Q[Candidate list<br/>Name - normalized email - source - created date - matching signals]
   Q --> C[Side-by-side compare<br/>Identity - consent - campaign history - activity - purchases - revenue - tier]
   C --> D{Decision}
-  D -- Different people --> K[Keep Separate<br/>record reviewer, date, reason]
+  D -- Different people --> K[Keep Separate<br/>complete review Task with reason]
   D -- Same person --> M[Choose survivor and field values]
-  D -- Uncertain --> U[Retain both and flag for later review]
+  D -- Uncertain --> U[Retain both; defer owned review Task]
   M --> X[Confirm merge or Lead conversion/update]
   X --> V[Verify related history, rollups, tier, lapse, and consent]
 ```
@@ -27,6 +27,8 @@ flowchart TB
 - The survivor should have the strongest history and data quality.
 - A merge must never upgrade consent silently.
 - Only authorized users can merge; unresolved ambiguity preserves both records.
+- Duplicate Record Sets and Items persist candidates. A standard Task with controlled subject `Duplicate Review` persists owner, due date, status, decision/reason, reviewer, and completion time.
+- Do not add a custom duplicate-review object unless representative testing proves the standard records cannot meet audit and backlog needs.
 
 ## Acceptance checks
 

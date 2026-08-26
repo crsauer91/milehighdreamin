@@ -1,27 +1,27 @@
 # MHD Salesforce Wireframes
 
-Desktop-first, low-fidelity wireframes for every functional area in the Mile High Dreamin Salesforce strategy. They use standard Salesforce objects, focused Lightning pages, list views, reports, dashboards, and narrow Flows.
+Desktop-first, low-fidelity wireframes for the principal operational experiences in the Mile High Dreamin Salesforce strategy. They use standard Salesforce objects, focused Lightning pages, list views, reports, dashboards, and narrow Flows.
 
-[Design index](../README.md) · [Strategy](../../01-strategy/README.md) · [Discovery](../../02-discovery/README.md)
+[Design index](../README.md) · [Solution design](../01-solution-design.md) · [Strategy](../../01-strategy/README.md) · [Discovery](../../02-discovery/README.md)
 
 ## Index
 
-1. [Fan Record Page](01-fan-record-page) — canonical Contact profile and related history.
-2. [Duplicate Review Queue](02-duplicate-review-queue) — flag-not-block comparison and manual resolution.
-3. [New Fan Intake](03-new-fan-intake) — capture, consent, source, duplicate check, and first-sale conversion.
-4. [Campaign Workspace](04-campaign-workspace) — release, tour, show, merch, crowdfunding, fan-club, and VIP audiences.
-5. [Opportunity Entry](05-opportunity-entry) — products, purchases, fulfillment, rollups, and supporter-program updates.
-6. [Fan Tier and Reactivation](06-fan-tier-and-reactivation) — tier/score evaluation, separate Lapsed Flag, and selective follow-up.
-7. [Membership and VIP](07-membership-and-vip) — Phase 2 MVP renewals, eligibility, offers, and fulfillment.
-8. [Case Triage](08-case-triage) — fan service assignment, escalation, resolution, and reporting.
-9. [Reports and Dashboard Drilldown](09-reports-and-dashboard-drilldown) — weekly, Campaign, and operations insight.
-10. [Home](10-home) — weekly system health and action workspace.
+1. [Fan Record Page](01-fan-record-page.md) — canonical Contact profile and related history.
+2. [Duplicate Review Queue](02-duplicate-review-queue.md) — flag-not-block comparison and manual resolution.
+3. [New Fan Intake](03-new-fan-intake.md) — capture, consent, source, duplicate check, and first-sale conversion.
+4. [Campaign Workspace](04-campaign-workspace.md) — release, tour, show, merch, crowdfunding, fan-club, and VIP audiences.
+5. [Opportunity Entry](05-opportunity-entry.md) — products, purchases, fulfillment, rollups, and supporter-program updates.
+6. [Fan Tier and Reactivation](06-fan-tier-and-reactivation.md) — tier/score evaluation, separate Lapsed Flag, and selective follow-up.
+7. [Membership and VIP](07-membership-and-vip.md) — Phase 2 MVP renewals, eligibility, offers, and fulfillment.
+8. [Case Triage](08-case-triage.md) — fan service assignment, escalation, resolution, and reporting.
+9. [Reports and Dashboard Drilldown](09-reports-and-dashboard-drilldown.md) — weekly, Campaign, and operations insight.
+10. [Home](10-home.md) — weekly system health and action workspace.
 
 ## Business-process coverage
 
 | Strategy outcome | Primary wireframes | Process-map source |
 |---|---|---|
-| Fan Identity & Trust | New Fan Intake; Duplicate Review Queue; Fan Record Page | [Fan Intake and Lead Management](../../02-discovery/03-business-process-maps/01-fan-intake-lead-management.md) |
+| Fan Identity & Trust | New Fan Intake; Duplicate Review Queue; Fan Record Page | [Fan Intake and Lead Management](../../02-discovery/03-business-process-maps/01-fan-intake-lead-management.md); [Consent Management](../../02-discovery/03-business-process-maps/02-consent-management.md); [Duplicate Review and Merge](../../02-discovery/03-business-process-maps/03-duplicate-review-merge.md) |
 | Fan Tiering & Lapse | Fan Record Page; Fan Tier and Reactivation | [Fan Tier and Lapsed Evaluation](../../02-discovery/03-business-process-maps/06-fan-tier-lapsed-evaluation.md) |
 | Campaigns & Revenue | Campaign Workspace; Opportunity Entry | [Campaign Audience](../../02-discovery/03-business-process-maps/04-campaign-audience-follow-up.md); [Direct Offer Purchase](../../02-discovery/03-business-process-maps/05-direct-offer-purchase.md) |
 | Membership/VIP | Membership and VIP; Opportunity Entry; Campaign Workspace | [Membership Renewal and VIP](../../02-discovery/03-business-process-maps/08-membership-renewal-vip.md) |
@@ -44,8 +44,12 @@ Desktop-first, low-fidelity wireframes for every functional area in the Mile Hig
 
 ```mermaid
 flowchart LR
-  Intake[New Fan Intake] --> Dedupe[Duplicate Review]
-  Dedupe --> Fan[Canonical Contact]
+  Intake[Manual, web, or import intake] --> Lead[Lead]
+  Lead --> Dedupe[Duplicate Review]
+  Dedupe --> Work[Working Lead]
+  Work --> Sale{First qualifying sale?}
+  Sale -- No --> Work
+  Sale -- Yes --> Fan[Convert to canonical Contact]
   Fan --> Campaign[Campaign / Tour / Show Audience]
   Campaign --> Purchase[Direct Purchase]
   Campaign --> Follow[Campaign Follow-Up]
@@ -53,7 +57,10 @@ flowchart LR
   Purchase --> Tier[Fan Tier Evaluation]
   Follow --> Tier
   Tier --> Lapse[Lapsed Flag Evaluation]
-  Program --> Service[Case Triage when support is needed]
+  Fan --> Service[Case Triage for fan issues]
+  Purchase --> Service
+  Campaign --> Service
+  Program --> Service
   Lapse --> Dash[Weekly Dashboards]
   Service --> Dash
   Dash --> Tasks[Top Three Owned Actions]

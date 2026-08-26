@@ -9,9 +9,9 @@ Give the artist or part-time admin a ten-minute operating view of system health,
 ```mermaid
 flowchart TB
   H[Home header<br/>MHD workspace - current week<br/>Actions: New Fan - Log Purchase - Create Campaign - Create Case]
-  H --> S[System health strip<br/>Intake failures - unresolved duplicates - import errors - Flow errors - consent exceptions]
+  H --> S[System health strip<br/>Open intake/import/Flow exception Tasks - unresolved Duplicate Record Sets/review Tasks - consent exceptions]
   S --> K[KPI row<br/>Direct Revenue - True Fans - Repeat Buyers - Lapsed High-Value - Renewals Due - Open Cases]
-  K --> P[Priority work<br/>New Fans - Emerging True Fans - Lapsed Fans - Follow-Up Tasks]
+  K --> P[Priority work<br/>New Fans - Spend-driven True Fan emergence - Lapsed Fans - Follow-Up Tasks]
   K --> C[Campaign snapshot<br/>Responses - Attendance - Purchases - Revenue]
   P --> A[Pick top three actions<br/>Owner - Due Date - Related Fan or Campaign]
   C --> A
@@ -23,6 +23,8 @@ flowchart TB
 - Trust exceptions appear before business metrics.
 - `New Fan`, `Log Purchase`, and `Create Case` open the corresponding standard-object or Screen Flow experience.
 - `Pick top three actions` creates or assigns Tasks; intimate relationship follow-up remains human.
+- Exception counts use open Tasks with controlled subjects and drill to owner, due date, source reference, error, and retry guidance.
+- Fan growth is fan-count change; True Fan emergence is a spend-triggered tier transition preserved in Contact field history.
 
 ## States
 

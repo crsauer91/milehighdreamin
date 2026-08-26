@@ -22,9 +22,9 @@ flowchart LR
 ```mermaid
 flowchart TB
   H[Dashboard header<br/>Period - Campaign - Product - Market - Owner - Refresh time]
-  H --> W[Weekly Artist<br/>Revenue - True Fans - Repeat Buyers - Lapsed - Renewals - Open Cases]
+  H --> W[Weekly Artist<br/>Revenue - Fan Count/Growth - Spend-driven True Fan Emergence - Repeat Buyers - Lapsed - Renewals - Open Cases]
   H --> C[Campaign<br/>Release/Show/Merch/VIP response - attendance - conversion - revenue]
-  H --> O[Operations<br/>New Leads - Duplicates - Follow-Ups - Cases - failed imports/Flows]
+  H --> O[Operations<br/>New Leads - Duplicate Record Sets/review Tasks - Follow-Ups - Cases - open exception Tasks]
   W --> D[Drilldown panel<br/>Filtered report/list - metric definition - source records - export]
   C --> D
   O --> D
@@ -33,7 +33,7 @@ flowchart TB
 
 ## Governed reports
 
-- Fans by Tier; Emerging True Fans; Lapsed High-Value Fans; Repeat Buyers.
+- Fans by Tier; Fan Count/Growth; Spend-Driven True Fan Emergence from tier history; Lapsed High-Value Fans; Repeat Buyers.
 - Direct Revenue by Campaign and Product.
 - Membership Renewals/Churn.
 - Show Attendance by Market and Post-Show Conversion.
@@ -45,3 +45,5 @@ flowchart TB
 - Unattributed revenue, refunds/cancellations, and test records are explicit.
 - Every dashboard total reconciles to source reports and sample records.
 - Drill-down always ends in a record or owned action.
+- Historical fan counts use report snapshots when needed; tier transitions use Contact field history.
+- Import, intake, and Flow exceptions drill to controlled-subject Tasks rather than unpersisted error messages.
