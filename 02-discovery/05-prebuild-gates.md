@@ -11,14 +11,14 @@ Complete this table for the specific implementation. The reusable framework inte
 | 5 | Contact model finalized | Standard Account + Contact model, canonical Contact rule, shared **None** Account, businessperson exception, first-sale conversion rule, and no-Person-Accounts decision documented |  |  |  |
 | 6 | MFA and access controls confirmed | MFA enabled and least-privilege access model validated |  |  |  |
 | 7 | Privacy and data-minimization rules defined | Required PII approved and unnecessary or sensitive data excluded |  |  |  |
-| 8 | Consent model finalized | Consent Status, Source, Date, and channel rules documented |  |  |  |
+| 8 | Consent model finalized | Consent Status, Source, Date, channel rules, field-history tracking, withdrawal handling, retention horizon, and secured long-term evidence archive documented |  |  |  |
 | 9 | Retention and deletion process defined | Retention schedule approval, request verification, suppression, deletion/anonymization, processor follow-through, holds, evidence, and review cadence documented |  |  |  |
 | 10 | Source data audit completed | Source systems inventoried and sample data quality reviewed |  |  |  |
 | 11 | Value normalization dictionary finalized | Controlled values for sources, channels, markets, campaign types, statuses, and other picklists documented |  |  |  |
 | 12 | Duplicate-management policy finalized | Matching logic, duplicate rules, merge authority, and review cadence documented |  |  |  |
 | 13 | Import templates prepared | CSV templates and field mappings prepared for initial loads |  |  |  |
 | 14 | Revenue object strategy finalized | Salesforce representation of direct purchases and revenue documented |  |  |  |
-| 15 | Revenue definition standardized | Transaction fields, take-home equation, taxes, fees, refunds, chargebacks, shipping, negative adjustments, reconciliation source, and $100,000 annual goal documented |  |  |  |
+| 15 | Revenue definition standardized | Transaction fields, take-home equation, taxes, fees, shipping, separate related negative refund/adjustment Opportunities, stable adjustment keys, reconciliation source, and $100,000 annual goal documented |  |  |  |
 | 16 | Campaign model finalized | Campaign types, hierarchy, naming, and Campaign Member statuses documented |  |  |  |
 | 17 | Flow design standards defined | Naming, documentation, fault handling, and logging approach documented |  |  |  |
 | 18 | UAT scenarios defined | Tests cover intake, conversion, purchases, campaign response, lapsed-fan logic, membership renewal, VIP eligibility, Cases, privacy, and other in-scope processes |  |  |  |
@@ -36,5 +36,5 @@ Complete this table for the specific implementation. The reusable framework inte
 | 30 | Risk register prepared | Blank register exists with fields for risk, severity, likelihood, mitigation, owner, status, and review date |  |  |  |
 | 31 | Decision register prepared | Strategy decisions, rationale, authority, date, status, and supersession fields documented |  |  |  |
 | 32 | Tier and lapse rules approved | Tier inputs, weights, qualifying spend, thresholds, windows, caps, blank handling, transition/recovery rules, inactivity/high-value definitions, schedule, owner, and test evidence documented |  |  |  |
-| 33 | Automation activation decisions approved | Membership renewal window, VIP eligibility, fan-count persistence, tier-history retention, product-allocation mechanism, and channel-specific duplicate behavior documented or explicitly deferred |  |  |  |
+| 33 | Automation activation decisions approved | Membership renewal window, VIP eligibility, native fan-count persistence or explicitly approved Reporting Snapshot custom target object, tier-history retention/archive, product-allocation mechanism, and channel-specific duplicate behavior documented or explicitly deferred |  |  |  |
 | 34 | Prebuild review completed | All required gates passed or exceptions explicitly accepted before configuration begins |  |  |  |
