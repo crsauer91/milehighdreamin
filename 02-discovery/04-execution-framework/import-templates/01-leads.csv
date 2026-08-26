@@ -1,1 +1,1 @@
-FirstName,LastName,Company,Email,Phone,MobilePhone,Status,LeadSource,Street,City,State,PostalCode,Country,Description,HasOptedOutOfEmail,DoNotCall,Acquisition_Channel__c,Consent_Status__c,Consent_Date__c,Consent_Source__c,Home_Market__c,Preferred_Channel__c,Interest_Area__c,Source_Record_Key__c
+FirstName,LastName,Company,Email,Phone,MobilePhone,Status,LeadSource,Street,City,State,PostalCode,Country,Description,HasOptedOutOfEmail,DoNotCall,Consent_Status__c,Consent_Date__c,Consent_Source__c,Home_Market__c,Preferred_Channel__c,Interest_Area__c,Source_Record_Key__c
