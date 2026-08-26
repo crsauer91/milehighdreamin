@@ -37,7 +37,7 @@ erDiagram
 
 ```mermaid
 flowchart TD
-  M[Manual/admin] --> SF[MHD Lead Intake Screen Flow]
+  M[Manual/admin] --> SF[MHD - Lead - Intake Screen Flow]
   W[Web form] --> WL[Web-to-Lead or approved integration]
   I[CSV/API import] --> IV[Validated import process]
   SF --> L[Create Lead]
@@ -64,6 +64,8 @@ Opportunity Products preserve the items, quantities, and selling prices. Their g
 
 For Direct Revenue by Product, allocate `Amount` proportionally by each qualifying line's extended selling price. If gross qualifying line totals are zero, leave product allocation unattributed and route the transaction for review. Round allocations to currency precision and assign any rounding remainder to the largest qualifying line so allocations equal `Amount`. Refunds and corrections rerun the same calculation idempotently. This reporting allocation is derived; do not add product-allocation fields until the chosen Salesforce report/Flow implementation proves they are necessary.
 
+Preserve an original sale after close. Record each financially material post-sale refund, chargeback, or correction as a separate related Closed Won Opportunity with Type and Purchase Type `Refund / Adjustment`, negative normalized `Amount`, the same purchasing Contact as primary OCR, and a unique adjustment key derived from the source-system adjustment ID. Relate it to the original through the source reference documented in Description or the smallest approved lookup only if reporting proves that reference insufficient. Rollups and product allocation sum original and adjustment records; reruns upsert by the adjustment key and never mutate history or double count.
+
 Purchase acceptance requires:
 
 - the shared **None** Account for an ordinary fan;
@@ -87,11 +89,11 @@ Do not create a custom review object unless testing proves standard Duplicate Re
 
 - `Fan_Tier__c` stores the current tier; `Lapsed_Fan_Flag__c` remains independent.
 - No manual override controls are in MVP because Strategy/Discovery define no persistence fields or approval model. The implementation decision gate must approve inputs, weights, qualifying spend, thresholds, windows, caps, blank handling, transition/recovery rules, cadence, owner, and tests before tier or lapse automation is activated. Correct source data or approved rules, then rerun evaluation. Do not invent values.
-- Enable Contact Field History Tracking for `Fan_Tier__c` (and `Lapsed_Fan_Flag__c` where useful). Tier history supplies transition date, old value, new value, and user/process identity without a custom object.
+- Enable Contact Field History Tracking for `Fan_Tier__c` (and `Lapsed_Fan_Flag__c` where useful). Tier history supplies transition date, old value, new value, and user/process identity without a custom object. When required analysis exceeds the available retention horizon, export the minimum transition evidence to the approved secured analytics archive before expiry.
 - **True Fan emergence** is measured from spend evidence: count distinct Contacts whose qualifying cumulative direct spend causes a tracked transition into True Fan or Patron during the period. The tier threshold must be documented before activation.
-- **Fan growth** is the change in canonical fan count: ending Contact count minus beginning Contact count. Use report snapshots when a historical beginning balance is not otherwise reproducible.
+- **Fan growth** is the change in canonical fan count: ending Contact count minus beginning Contact count. Prefer a reproducible native beginning balance. A Salesforce Reporting Snapshot requires an explicitly approved custom target object and fields; it is not a standard-object-only fallback.
 
-If standard field history retention or reporting cannot meet an implementation's required analysis window, document that gap before adding a reporting snapshot or custom history store.
+If standard field history retention or reporting cannot meet an implementation's required analysis window, use the approved secured export policy or document and approve the smallest custom persistence design before building it.
 
 ## Cases and due-date handling
 
@@ -117,7 +119,7 @@ The nine approved outcomes remain separate: New Fan Intake, Lead Conversion Foll
 ## Reporting dependencies
 
 - Current fan value comes from qualifying Opportunities rolled up to Contact.
-- Historical tier movement comes from Contact field history; period fan counts use report snapshots when necessary.
+- Historical tier movement comes from Contact field history plus the approved long-term export when required; period fan counts use native reporting or an explicitly approved Reporting Snapshot custom target object.
 - Duplicate backlog comes from unresolved Duplicate Record Sets and their review Tasks.
 - Flow/intake/import exception counts come from open controlled-subject Tasks.
 - Case aging and due work come from standard dates plus `Next_Action_Due_Date__c`.
