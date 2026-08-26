@@ -1,6 +1,10 @@
 # 03-admin-runbook
 
-## Purpose
+[Strategy index](README.md) · [Org strategy](01-org-strategy.md) · [Implementation plan](02-implementation-plan.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
+
+## Mile High Dreamin Salesforce Admin Playbook
+
+### Purpose
 
 This playbook defines how the Mile High Dreamin Salesforce proof of concept should be administered after initial configuration.
 
@@ -41,10 +45,12 @@ Before creating a new field:
 
 ## 1.2 Contact Fields
 
+Contacts are the canonical fan records. Use the standard Account + Contact model; do not enable or use Person Accounts. Associate ordinary fan Contacts with the existing shared Account named **None**. Create another Account manually only when the person is acting as a businessperson or represents an organization. During fan Lead conversion, select **None** rather than creating a new Account.
+
 | Field | Type | Purpose | Required | Controlled Values / Rule |
 |---|---|---|---|---|
 | Email | Email | Primary fan identifier and communication address | Operationally expected | Validate before conversion where practical |
-| Fan Tier | Picklist | Current relationship/value tier | No | Listener; Buyer; Repeat Buyer; True Fan; Patron; Lapsed |
+| Fan Tier | Picklist | Current relationship/value tier | No | Listener; Buyer; Repeat Buyer; True Fan; Patron |
 | Lifetime Direct Revenue | Currency | Total qualifying direct revenue associated with fan | No | System-maintained; default 0 |
 | First Purchase Date | Date | First qualifying direct purchase | No | System-maintained |
 | Last Purchase Date | Date | Most recent qualifying direct purchase | No | System-maintained |
@@ -58,10 +64,10 @@ Before creating a new field:
 | Home Market | Picklist | Primary geographic market for segmentation | No | See Home Market values below |
 | Favorite Product Era | Picklist | Artist-defined preference used for segmentation | No | Maintain only artist-specific eras that are operationally useful |
 | Favorite Product Area | Picklist | General product/content preference | No | Maintain only categories actively used for targeting |
-| Current Membership Tier | Picklist | Current recurring membership level | No | Phase 3; do not implement until membership is in scope |
-| Membership Status | Picklist | Membership state | No | Phase 3 |
-| Membership Renewal Date | Date | Next expected renewal | No | Phase 3 |
-| VIP Eligible | Checkbox | Indicates VIP eligibility | No | Phase 3 |
+| Current Membership Tier | Picklist | Current recurring membership level | No | MVP; artist-defined controlled tiers |
+| Membership Status | Picklist | Membership state | No | Prospect; Active; Grace Period; Lapsed; Canceled |
+| Membership Renewal Date | Date | Next expected renewal | No | Required when an active membership has a scheduled renewal |
+| VIP Eligible | Checkbox | Indicates VIP eligibility | No | MVP; set only from documented criteria |
 
 ### Fan Tier Definitions
 
@@ -72,9 +78,8 @@ Before creating a new field:
 | Repeat Buyer | More than one qualifying direct purchase |
 | True Fan | Demonstrated sustained direct financial and/or meaningful engagement |
 | Patron | Highest-value or recurring supporter meeting the project's patron criteria |
-| Lapsed | Previously valuable supporter who has exceeded the defined inactivity threshold |
 
-Fan Tier should summarize the relationship. It should **not** become an elaborate predictive scoring system.
+Fan Tier should summarize the relationship. **Lapsed is not a tier**; maintain it only through the separate Lapsed Fan Flag. Fan Tier should not become an elaborate predictive scoring system.
 
 ---
 
@@ -141,7 +146,7 @@ Captured but not reviewed.
 Currently under review, enrichment, or duplicate investigation.
 
 **Qualified**  
-Meets the criteria to become a Contact.
+Has completed a first qualifying sale and therefore meets the sole conversion criterion.
 
 **Unqualified**  
 Should not currently be converted.
@@ -225,6 +230,16 @@ Do not create a new Campaign Type merely because a campaign feels slightly diffe
 
 ## 1.9 Product and Revenue Fields
 
+### Direct Revenue Standard
+
+Direct revenue is the take-home amount retained by the artist after transaction/platform fees and transaction taxes. For each qualifying transaction:
+
+`Direct Revenue = Gross Transaction Amount - Tax Amount - Platform / Payment Fees - Refunds / Chargebacks - MIN(Shipping Collected, Shipping Cost)`
+
+Gross Transaction Amount includes tax and shipping charged. The formula excludes shipping up to actual cost while retaining any positive shipping difference. Negative refund or chargeback adjustments remain negative. Store Direct Revenue in Opportunity Amount and reconcile it to the commerce/payment or accounting system of record.
+
+The annual direct-revenue goal is **$100,000**. Report year-to-date take-home direct revenue, remaining amount to goal, and percent achieved.
+
 ### Product Categories
 
 Use standard Products for items that generate direct revenue, including:
@@ -243,6 +258,12 @@ Use the Standard Price Book unless a demonstrable need for another price book de
 | Field | Purpose |
 |---|---|
 | Amount | Qualifying direct revenue |
+| Gross Transaction Amount | Total charged, including tax and shipping |
+| Tax Amount | Transaction tax collected, withheld, or remitted |
+| Platform / Payment Fees | Transaction and marketplace fees |
+| Refunds / Chargebacks | Amount returned or reversed |
+| Shipping Collected | Shipping charged to the fan |
+| Shipping Cost | Actual qualifying shipping cost |
 | Close Date | Purchase/transaction date |
 | Stage | Purchase state |
 | Revenue Channel | Broad revenue category |
@@ -285,11 +306,15 @@ Every Flow must:
 
 | Flow | Type | Purpose | Trigger | Status |
 |---|---|---|---|---|
-| MHD - Lead Intake | Screen Flow | Controlled manual fan intake and duplicate review | Admin/user initiated | MVP |
-| MHD - Purchase Rollup Update | Record-Triggered Flow | Update Contact revenue and purchase dates | Qualifying Closed Won purchase | Planned |
-| MHD - Fan Tier Evaluation | Record-Triggered or Scheduled Flow | Maintain fan tier from approved criteria | Relevant fan/revenue change | Planned |
-| MHD - Lapsed Fan Evaluation | Scheduled Flow | Identify previously valuable inactive fans | Scheduled | Planned |
-| MHD - Consent Validation Support | Record-Triggered Flow only if needed | Support consent administration beyond validation rules | Consent change | Optional |
+| MHD - Lead Intake | Screen Flow | Controlled fan intake and duplicate review | Admin/user initiated | MVP |
+| MHD - Lead Conversion Follow-Through | After-Save or Autolaunched Flow | Initialize the canonical Contact and follow-up after the first qualifying sale | Approved Lead conversion | MVP |
+| MHD - Consent Validation (Lead and Contact) | Object-specific Before-Save Record-Triggered Flows | Enforce affirmative consent evidence and preserve channel opt-outs | Lead or Contact create/update | MVP |
+| MHD - Purchase Rollup Update | Record-Triggered Flow | Update Contact direct revenue and purchase dates | Qualifying Closed Won purchase | MVP |
+| MHD - Fan Tier Evaluation | Record-Triggered or Scheduled Flow | Maintain Listener, Buyer, Repeat Buyer, True Fan, or Patron | Relevant fan/revenue change | MVP |
+| MHD - Lapsed Fan Evaluation | Scheduled Flow | Maintain the separate Lapsed Fan Flag from inactivity and recovery rules | Scheduled | MVP |
+| MHD - Campaign Member Follow-Up | Record-Triggered Flow | Create one owned action for significant Campaign responses | Campaign Member status becomes significant | MVP |
+| MHD - Membership Renewal | Scheduled Flow | Identify upcoming renewals and create one owned follow-up | Scheduled | MVP |
+| MHD - Case Triage | Record-Triggered Flow | Assign and prioritize new support Cases | Case created or materially updated | MVP |
 
 Do not create additional flows simply to make the architecture appear sophisticated.
 
@@ -487,6 +512,50 @@ Periodically report on:
 - marketing lists containing non-consented records.
 
 The expected count for the first two reports is **zero**.
+
+---
+
+# 4A. Privacy Retention and Deletion
+
+## 4A.1 Principles
+
+- Collect only data needed for fan service, consent, revenue, fulfillment, or required reporting.
+- Classify fields containing personal data and restrict access by least privilege.
+- Keep payment-card data and authentication secrets outside Salesforce.
+- Document the lawful business reason and retention period for each imported source category before loading it.
+- Treat consent withdrawal, marketing suppression, correction, access, and deletion as distinct requests.
+
+## 4A.2 Retention Schedule
+
+Before implementation, the project owner must approve a retention schedule covering Leads, Contacts, consent evidence, Cases, Tasks/Events, Campaign Members, Opportunities, import files, exports, and backups. Use the shortest period consistent with the stated business purpose and applicable legal, tax, accounting, fraud, chargeback, and contractual obligations. Review the schedule at least annually and whenever a source, purpose, or legal obligation changes.
+
+Do not assign a universal period without confirming applicable law and business obligations. When an operational record must be retained, minimize or anonymize personal data that is no longer required.
+
+## 4A.3 Request Intake and Verification
+
+For an access, correction, suppression, or deletion request:
+
+1. Record the request date, scope, source, and owner in the approved admin log without copying unnecessary personal data.
+2. Verify identity proportionately before disclosing or deleting data; do not request more data than needed for verification.
+3. Search Salesforce and documented connected systems, exports, import staging files, and processors.
+4. Identify legal or operational holds and document the basis, affected records, and review date.
+5. Complete the request within the applicable deadline and record completion evidence.
+
+## 4A.4 Suppression and Deletion Procedure
+
+1. Immediately stop marketing when consent is withdrawn or suppression is requested.
+2. Preserve the minimum suppression evidence needed to prevent re-enrollment, with access restricted.
+3. Remove or anonymize personal data that has no continuing approved purpose.
+4. Delete eligible Salesforce records using the least-destructive supported method after reviewing related Leads, Contacts, Campaign Members, Opportunities, Cases, Tasks, and files.
+5. Empty the Recycle Bin only after the deletion has been validated and recovery is no longer required.
+6. Send deletion or suppression instructions to documented processors and connected systems where required.
+7. Confirm completion, exceptions, retained categories, and the reason for any retention in the admin log.
+
+Never hard-delete broadly, merge as a substitute for deletion, or erase financial/support history without reviewing retention obligations. Salesforce deletion does not by itself remove data from exports, backups, or external platforms.
+
+## 4A.5 Scheduled Review
+
+At least quarterly, review records past their approved retention period, stale exports/import files, inactive users, permission access, unresolved privacy requests, and processor completion evidence. Pause deletion when identity, scope, dependency, or retention requirements are unresolved and escalate to the project owner.
 
 ---
 
@@ -699,9 +768,15 @@ Format:
 Examples:
 
 - `MHD - Lead - Intake`
+- `MHD - Lead - Conversion Follow-Through`
+- `MHD - Lead - Consent Validation`
+- `MHD - Contact - Consent Validation`
 - `MHD - Contact - Fan Tier Evaluation`
 - `MHD - Contact - Lapsed Fan Evaluation`
+- `MHD - Campaign Member - Follow-Up`
 - `MHD - Opportunity - Purchase Rollup Update`
+- `MHD - Contact - Membership Renewal`
+- `MHD - Case - Triage`
 
 API names may use underscores:
 
@@ -752,6 +827,27 @@ Examples:
 `2026 - Merch Drop - Fall Collection`
 
 Use naming that remains understandable after the event has passed.
+
+---
+
+# 7A. Membership, VIP, and Case Administration
+
+## 7A.1 Membership and VIP
+
+- Define artist-approved membership tiers, benefits, price, status transitions, grace period, and renewal cadence before enrollment.
+- Create membership Products and qualifying Closed Won Opportunities; maintain Current Membership Tier, Membership Status, and Membership Renewal Date on the Contact.
+- Use documented VIP eligibility criteria based on approved relationship/value signals. Never infer VIP status from sensitive personal data.
+- The Membership Renewal Flow creates one owned follow-up Task during the approved renewal window; it does not send through a channel without affirmative consent.
+- Review upcoming renewals, grace-period members, churn, benefit exceptions, and VIP audiences weekly.
+- Limit membership and VIP data access to users who need it for fulfillment, service, or approved outreach.
+
+## 7A.2 Cases
+
+Create a Case for order, digital-access, event, membership, or general fan-support issues that require owned resolution. Capture Contact, category, issue type, source, priority, relevant transaction, owner, next action, and due date where applicable.
+
+The Case Triage Flow must assign a queue or owner, set priority from documented criteria, and escalate high-priority or high-value relationship impacts for personal review. Restrict sensitive Case details using least privilege. Close a Case only after recording the resolution and required fan communication. Review open volume, aging, ownership, escalations, and resolution time weekly.
+
+Do not store payment-card data, credentials, or unnecessary sensitive details in a Case.
 
 ---
 
@@ -812,7 +908,7 @@ Core smoke tests:
 - create a Lead;
 - trigger duplicate warning;
 - complete intake;
-- convert a qualified Lead;
+- convert a Lead after its first qualifying sale and associate it with **None**;
 - update consent;
 - create/associate Campaign Member;
 - create qualifying purchase;
@@ -1134,13 +1230,13 @@ Verify matching against an existing Contact during Lead intake/conversion.
 
 ---
 
-### UAT-04: Qualified Lead Conversion
+### UAT-04: First-Sale Lead Conversion
 
 Verify:
 
-1. Lead meets qualification criteria.
-2. Lead converts successfully.
-3. Contact is created or associated correctly.
+1. Lead has a first qualifying sale.
+2. Lead converts successfully only after that sale.
+3. Contact is created and associated with the existing **None** Account.
 4. source and consent information survive conversion;
 5. activities/history remain accessible.
 
@@ -1171,6 +1267,12 @@ Create a qualifying Closed Won Opportunity.
 Verify:
 
 - Amount
+- Gross Transaction Amount
+- Tax Amount
+- Platform / Payment Fees
+- Refunds / Chargebacks
+- Shipping Collected
+- Shipping Cost
 - Contact relationship
 - Product
 - Related Campaign
@@ -1185,7 +1287,7 @@ Then verify Contact:
 - Last Purchase Date
 - Fan Tier
 
-**Expected:** Fan value updates correctly.
+**Expected:** Amount matches the documented direct-revenue equation and fan value updates correctly.
 
 ---
 
@@ -1258,6 +1360,38 @@ Import a small known dataset containing:
 Compare dashboard totals to underlying reports and sample records.
 
 **Expected:** Dashboard figures can be traced to Salesforce data.
+
+---
+
+### UAT-13: Membership Renewal
+
+Create an active member inside the renewal window and run the renewal evaluation.
+
+**Expected:** One owned renewal Task is created; tier, status, and renewal date remain accurate; outreach uses only a permitted channel.
+
+---
+
+### UAT-14: VIP Eligibility
+
+Test one Contact that meets documented VIP criteria and one that does not.
+
+**Expected:** Only the qualifying Contact is marked eligible and appears in the governed VIP audience.
+
+---
+
+### UAT-15: Case Triage
+
+Create standard- and high-priority Cases with representative categories.
+
+**Expected:** Ownership, priority, escalation, due-date, resolution, access, and reporting behavior match the documented rules.
+
+---
+
+### UAT-16: Privacy Request
+
+Test a consent withdrawal and a deletion request against representative related records.
+
+**Expected:** Marketing is suppressed immediately; identity is verified; holds and connected systems are checked; eligible data is deleted or anonymized; retained categories and completion evidence are logged.
 
 ---
 

@@ -41,7 +41,7 @@ Everything already approved in strategy is available:
 - fan tiers, True Fan score, repeat-buyer status, lapsed detection, and selective re-engagement;
 - memberships, VIP eligibility, renewal tracking, and benefits;
 - Cases and Tasks;
-- narrow Flows for the seven strategy outcomes;
+- narrow Flows for the nine strategy automation outcomes;
 - reports, list views, and Weekly, Campaign, and Operations dashboards;
 - UAT, deployment, rollback, privacy requests, and recurring administration.
 

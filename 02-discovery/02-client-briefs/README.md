@@ -13,7 +13,7 @@ This directory contains separate client briefs for different artist personas and
 
 If a client spans multiple models, use the dominant revenue motion first and add secondary capabilities only after the core operating motion is stable. Use these briefs to reduce scope, not expand it.
 
-For the reusable framework that keeps every approved revenue motion available in the MVP, use the [Multi-Channel Independent Artist-Operator](../03-execution-framework/01-hybrid-persona-and-mvp.md).
+For the reusable framework that keeps every approved revenue motion available in the MVP, use the [Multi-Channel Independent Artist-Operator](../04-execution-framework/01-hybrid-persona-and-mvp.md).
 
 ## Persona Briefs
 

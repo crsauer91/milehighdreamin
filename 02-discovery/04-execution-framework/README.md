@@ -28,6 +28,6 @@ Custom fields are limited to the fan, consent, revenue, membership, Campaign, so
 2. Confirm the configured API names and picklist values.
 3. Replace configurable defaults only when the client has a documented business or legal requirement.
 4. Test a small import, duplicate behavior, consent validation, totals, and relationships.
-5. Complete the existing prebuild gates for the client implementation.
+5. Complete the [prebuild gates](../05-prebuild-gates.md) for the client implementation.
 
 This directory is the canonical source for framework mappings and controlled values. Other documents should link here instead of copying the full tables.

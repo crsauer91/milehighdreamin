@@ -19,17 +19,17 @@ flowchart TB
 
 ## Rules
 
-- The selected fan-profile model from prebuild discovery controls whether this is a Contact or Person Account page.
+- This is a Contact page. Ordinary fan Contacts use the shared **None** Account; business or organizational relationships may use another Account.
 - Consent is explicit and separate from record existence, purchases, attendance, or engagement.
 - System-maintained revenue, tier, score, and lapsed fields are read-only except for documented overrides.
 - `Possible Duplicate` is visible but does not block work; it opens the Duplicate Review Queue.
-- Membership/VIP fields are visible only when that Phase 3 capability is activated.
+- Membership/VIP fields are part of the Phase 2 MVP and are shown when that business motion is configured.
 
 ## States
 
 - **Listener:** known supporter with no qualifying direct purchase.
 - **Buyer / Repeat Buyer / True Fan / Patron:** increasingly valuable or recurring relationship.
-- **Lapsed:** previously valuable supporter beyond the approved inactivity threshold.
+- **Lapsed Flag:** separate from Fan Tier; identifies a previously valuable supporter beyond the approved inactivity threshold.
 - **Restricted:** user can view only permitted PII and cannot edit consent or merge records.
 
 ## Acceptance checks
