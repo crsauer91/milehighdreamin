@@ -8,6 +8,8 @@
 
 This playbook defines how the Mile High Dreamin Salesforce proof of concept should be administered after initial configuration.
 
+The [Implementation section](../04-implementation/README.md) is authoritative for build, UAT, deployment, rollback, and evidence. Any build-time inventory, test case, deployment, or rollback content retained here is an operational reference summary only. If it conflicts with Implementation, stop and correct this playbook; do not use it to override Implementation.
+
 The operating goal is simple:
 
 > Maintain a trustworthy, low-maintenance Salesforce system that helps an independent musician identify valuable supporters, deepen direct fan relationships, understand direct revenue, and surface supporters who need attention.
@@ -307,15 +309,15 @@ Every Flow must:
 
 | Flow | Type | Purpose | Trigger | Status |
 |---|---|---|---|---|
-| MHD - Lead Intake | Screen Flow | Controlled fan intake and duplicate review | Admin/user initiated | MVP |
-| MHD - Lead Conversion Follow-Through | After-Save or Autolaunched Flow | Initialize the canonical Contact and follow-up after the first qualifying sale | Approved Lead conversion | MVP |
-| MHD - Consent Validation (Lead and Contact) | Object-specific Before-Save Record-Triggered Flows | Enforce affirmative consent evidence and preserve channel opt-outs | Lead or Contact create/update | MVP |
-| MHD - Purchase Rollup Update | Record-Triggered Flow | Update Contact direct revenue and purchase dates | Qualifying Closed Won purchase | MVP |
-| MHD - Fan Tier Evaluation | Record-Triggered or Scheduled Flow | Maintain Listener, Buyer, Repeat Buyer, True Fan, or Patron | Relevant fan/revenue change | MVP |
-| MHD - Lapsed Fan Evaluation | Scheduled Flow | Maintain the separate Lapsed Fan Flag from inactivity and recovery rules | Scheduled | MVP |
-| MHD - Campaign Member Follow-Up | Record-Triggered Flow | Create one owned action for significant Campaign responses | Campaign Member status becomes significant | MVP |
-| MHD - Membership Renewal | Scheduled Flow | Identify upcoming renewals and create one owned follow-up | Scheduled | MVP |
-| MHD - Case Triage | Record-Triggered Flow | Assign and prioritize new support Cases | Case created or materially updated | MVP |
+| MHD - Lead - Intake | Screen Flow | Controlled manual fan intake and duplicate review | Admin/user initiated | MVP |
+| MHD - Lead - Conversion Follow-Through | After-Save or Autolaunched Flow | Initialize the canonical Contact and follow-up after the first qualifying sale | Approved Lead conversion | MVP |
+| MHD - Lead - Consent Validation; MHD - Contact - Consent Validation | Object-specific Before-Save Record-Triggered Flows | Enforce affirmative consent evidence and preserve channel opt-outs | Lead or Contact create/update | MVP |
+| MHD - Opportunity - Purchase Update | Record-Triggered Flow | Update Contact direct revenue and purchase dates | Qualifying Closed Won purchase or adjustment | MVP |
+| MHD - Contact - Fan Tier Evaluation | Record-Triggered or Scheduled Flow | Maintain Listener, Buyer, Repeat Buyer, True Fan, or Patron | Relevant fan/revenue change | MVP |
+| MHD - Contact - Lapsed Fan Evaluation | Scheduled Flow | Maintain the separate Lapsed Fan Flag from inactivity and recovery rules | Scheduled | MVP |
+| MHD - Campaign Member - Follow-Up | Record-Triggered Flow | Create one owned action for significant Campaign responses | Campaign Member status becomes significant | MVP |
+| MHD - Contact - Membership Renewal | Scheduled Flow | Identify upcoming renewals and create one owned follow-up | Scheduled | MVP |
+| MHD - Case - Triage | Record-Triggered Flow | Assign and prioritize new support Cases | Case created or materially updated | MVP |
 
 Do not create additional flows simply to make the architecture appear sophisticated.
 
@@ -494,12 +496,12 @@ When affirmative consent is received:
 When a fan withdraws consent:
 
 1. Set `Consent Status = False`.
-2. Preserve historical consent evidence where appropriate.
+2. Preserve the prior status, date, source, actor, and change timestamp in field history; do not clear the prior date/source merely because current status is False.
 3. Do not overwrite historical information merely to make the record cleaner.
 4. Ensure future campaign/export processes exclude the fan from marketing where required.
 5. Process deletion requests separately according to the privacy procedure.
 
-Consent withdrawal must not delete purchase, accounting, or other legitimately retained operational history automatically.
+Consent withdrawal must not delete purchase, accounting, or other legitimately retained operational history automatically. Enable field history for Consent Status, Date, and Source on Lead and Contact. Because standard history retention is finite, export the minimum consent-event evidence to the approved secured archive before expiry when the three-year consent-evidence policy exceeds the org's available retention.
 
 ---
 
@@ -600,7 +602,7 @@ At minimum review:
 - First Name
 - Last Name
 - Email
-- Lead Source / Acquisition Channel
+- Lead Source (`LeadSource`)
 - Consent Status
 - Consent Date
 - Consent Source
