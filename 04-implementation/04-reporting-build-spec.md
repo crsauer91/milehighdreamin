@@ -17,9 +17,9 @@ Use the [KPI dictionary](../02-discovery/04-execution-framework/06-kpi-dictionar
 
 ## History decisions
 
-Enable Contact Field History Tracking for `Fan_Tier__c`; evaluate tracking `Lapsed_Fan_Flag__c` against retention and reporting needs. Verify old value, new value, timestamp, and user/process identity.
+Enable Contact Field History Tracking for `Fan_Tier__c`; evaluate tracking `Lapsed_Fan_Flag__c` against retention and reporting needs. Verify old value, new value, timestamp, and user/process identity. When the approved analysis horizon exceeds available standard retention, export the minimum transition evidence to the approved secured analytics archive before expiry.
 
-For Fan Growth, record the selected beginning-balance method before activation. Use native historical reporting where reproducible; otherwise configure a reporting snapshot with approved cadence, retention, owner, and reconciliation. Do not add a custom history object until standard retention/reporting is proven insufficient.
+For Fan Growth, record the selected beginning-balance method before activation. Use native historical reporting where reproducible. A Salesforce Reporting Snapshot stores results in a custom target object: configure one only after Gate 33 explicitly approves the object, target fields, cadence, retention, owner, security, and reconciliation. Do not add any other custom history object until standard reporting and the approved secured export are proven insufficient.
 
 ## Revenue by Product spike
 
