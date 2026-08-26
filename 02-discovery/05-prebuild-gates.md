@@ -35,4 +35,6 @@ Complete this table for the specific implementation. The reusable framework inte
 | 29 | Case process defined | Intake, categories, priority, assignment, escalation, resolution, access, and reporting documented |  |  |  |
 | 30 | Risk register prepared | Blank register exists with fields for risk, severity, likelihood, mitigation, owner, status, and review date |  |  |  |
 | 31 | Decision register prepared | Strategy decisions, rationale, authority, date, status, and supersession fields documented |  |  |  |
-| 32 | Prebuild review completed | All required gates passed or exceptions explicitly accepted before configuration begins |  |  |  |
+| 32 | Tier and lapse rules approved | Tier inputs, weights, qualifying spend, thresholds, windows, caps, blank handling, transition/recovery rules, inactivity/high-value definitions, schedule, owner, and test evidence documented |  |  |  |
+| 33 | Automation activation decisions approved | Membership renewal window, VIP eligibility, fan-count persistence, tier-history retention, product-allocation mechanism, and channel-specific duplicate behavior documented or explicitly deferred |  |  |  |
+| 34 | Prebuild review completed | All required gates passed or exceptions explicitly accepted before configuration begins |  |  |  |
