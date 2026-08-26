@@ -8,7 +8,7 @@ These values preserve repository terminology. Values marked **Framework default*
 |---|---|---|
 | Fan Tier | Listener; Buyer; Repeat Buyer; True Fan; Patron | Org strategy; the separate Lapsed Fan Flag controls inactivity |
 | Lead Status | New; Working; Qualified; Unqualified | Admin runbook |
-| Lead Source / Acquisition Channel | Website / Direct Signup; Live Event; Social / Content; Commerce / Purchase; Referral / Other | Admin runbook |
+| Lead Source (standard `LeadSource`) | Website / Direct Signup; Live Event; Social / Content; Commerce / Purchase; Referral / Other | Admin runbook |
 | Preferred Channel | Email; SMS/Text; Social; In Person; No Preference | Admin runbook |
 | Consent Source | Website / Form; Purchase / Checkout; Event / In Person; Membership / Fan Club; Manual / Other | Admin runbook |
 | Home Market | Denver / Front Range; Northern Colorado; Southern Colorado; Western Slope; Mountain Communities; Other Colorado; Mountain West; Southwest; West Coast; Midwest; South; Northeast; Other U.S.; International; Unknown | Admin runbook |
@@ -25,7 +25,7 @@ Use the Salesforce-required Lead Company placeholder **Individual Fan**. Do not 
 | Status | Planned; In Progress; Completed; Aborted | Salesforce-aligned framework default |
 | Campaign Member Status | Sent / Invited; Responded / Engaged; Attended; Purchased / Backed; No Response | Admin runbook |
 
-Configure Responded / Engaged, Attended, and Purchased / Backed as Responded where the Campaign type uses them. Use only the statuses meaningful to that Campaign type.
+Represent livestreams as `Show` unless an approved reporting requirement establishes a distinct business question and Campaign Type. Configure Responded / Engaged, Attended, and Purchased / Backed as Responded where the Campaign type uses them. Use only the statuses meaningful to that Campaign type.
 
 ## Products, revenue, and pipeline
 
