@@ -1,5 +1,7 @@
 # 03-admin-runbook
 
+[Strategy index](README.md) · [Org strategy](01-org-strategy.md) · [Implementation plan](02-implementation-plan.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
+
 ## Mile High Dreamin Salesforce Admin Playbook
 
 ### Purpose
@@ -43,7 +45,7 @@ Before creating a new field:
 
 ## 1.2 Contact Fields
 
-Contacts are the canonical fan records. Use the standard Account + Contact model; do not enable or use Person Accounts. Associate individual fans without a meaningful organization relationship to the project's governed placeholder Account pattern.
+Contacts are the canonical fan records. Use the standard Account + Contact model; do not enable or use Person Accounts. Associate ordinary fan Contacts with the existing shared Account named **None**. Create another Account manually only when the person is acting as a businessperson or represents an organization. During fan Lead conversion, select **None** rather than creating a new Account.
 
 | Field | Type | Purpose | Required | Controlled Values / Rule |
 |---|---|---|---|---|
@@ -145,7 +147,7 @@ Captured but not reviewed.
 Currently under review, enrichment, or duplicate investigation.
 
 **Qualified**  
-Meets the criteria to become a Contact.
+Has completed a first qualifying sale and therefore meets the sole conversion criterion.
 
 **Unqualified**  
 Should not currently be converted.
@@ -231,7 +233,11 @@ Do not create a new Campaign Type merely because a campaign feels slightly diffe
 
 ### Direct Revenue Standard
 
-Direct revenue is the take-home amount retained by the artist after transaction/platform fees and taxes. Exclude taxes collected, refunds, chargebacks, and payment or marketplace fees. Exclude shipping collected unless it exceeds actual shipping cost; only the retained difference qualifies. Apply adjustments consistently to the qualifying Closed Won Opportunity amount or an auditable adjustment record so rollups never present gross sales as direct revenue.
+Direct revenue is the take-home amount retained by the artist after transaction/platform fees and transaction taxes. For each qualifying transaction:
+
+`Direct Revenue = Gross Transaction Amount - Tax Amount - Platform / Payment Fees - Refunds / Chargebacks - MIN(Shipping Collected, Shipping Cost)`
+
+Gross Transaction Amount includes tax and shipping charged. The formula excludes shipping up to actual cost while retaining any positive shipping difference. Negative refund or chargeback adjustments remain negative. Store Direct Revenue in Opportunity Amount and reconcile it to the commerce/payment or accounting system of record.
 
 The annual direct-revenue goal is **$100,000**. Report year-to-date take-home direct revenue, remaining amount to goal, and percent achieved.
 
@@ -253,6 +259,12 @@ Use the Standard Price Book unless a demonstrable need for another price book de
 | Field | Purpose |
 |---|---|
 | Amount | Qualifying direct revenue |
+| Gross Transaction Amount | Total charged, including tax and shipping |
+| Tax Amount | Transaction tax collected, withheld, or remitted |
+| Platform / Payment Fees | Transaction and marketplace fees |
+| Refunds / Chargebacks | Amount returned or reversed |
+| Shipping Collected | Shipping charged to the fan |
+| Shipping Cost | Actual qualifying shipping cost |
 | Close Date | Purchase/transaction date |
 | Stage | Purchase state |
 | Revenue Channel | Broad revenue category |
@@ -889,7 +901,7 @@ Core smoke tests:
 - create a Lead;
 - trigger duplicate warning;
 - complete intake;
-- convert a qualified Lead;
+- convert a Lead after its first qualifying sale and associate it with **None**;
 - update consent;
 - create/associate Campaign Member;
 - create qualifying purchase;
@@ -1211,13 +1223,13 @@ Verify matching against an existing Contact during Lead intake/conversion.
 
 ---
 
-### UAT-04: Qualified Lead Conversion
+### UAT-04: First-Sale Lead Conversion
 
 Verify:
 
-1. Lead meets qualification criteria.
-2. Lead converts successfully.
-3. Contact is created or associated correctly.
+1. Lead has a first qualifying sale.
+2. Lead converts successfully only after that sale.
+3. Contact is created and associated with the existing **None** Account.
 4. source and consent information survive conversion;
 5. activities/history remain accessible.
 
@@ -1248,6 +1260,12 @@ Create a qualifying Closed Won Opportunity.
 Verify:
 
 - Amount
+- Gross Transaction Amount
+- Tax Amount
+- Platform / Payment Fees
+- Refunds / Chargebacks
+- Shipping Collected
+- Shipping Cost
 - Contact relationship
 - Product
 - Related Campaign
@@ -1262,7 +1280,7 @@ Then verify Contact:
 - Last Purchase Date
 - Fan Tier
 
-**Expected:** Fan value updates correctly.
+**Expected:** Amount matches the documented direct-revenue equation and fan value updates correctly.
 
 ---
 
