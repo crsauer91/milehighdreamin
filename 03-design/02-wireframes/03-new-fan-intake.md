@@ -8,9 +8,13 @@ Capture or import a fan with controlled identity, source, consent, ownership, an
 
 ```mermaid
 flowchart LR
-  A[Web form, CSV import, or manual entry] --> B[Create Lead]
-  B --> C[MHD Lead Intake Screen Flow]
-  C --> D[Stamp source, acquisition channel, owner, and consent defaults]
+  A[Manual/admin entry] --> C[MHD Lead Intake Screen Flow]
+  W[Web form] --> B[Web-to-Lead or approved integration]
+  I[CSV/API import] --> V[Validated import process]
+  C --> L[Create Lead]
+  B --> L
+  V --> L
+  L --> D[Shared consent validation and source normalization]
   D --> E[Check Lead and fan-profile matches]
   E --> F{Possible duplicate?}
   F -- No --> G[Save new Lead]
@@ -19,10 +23,10 @@ flowchart LR
   I -- Existing person --> J[Use/update existing record]
   I -- Different person --> G
   I -- Uncertain --> K[Save and flag for later review]
-  G --> L{Qualified as known fan?}
-  K --> L
-  L -- No --> M[Keep New/Working/Unqualified Lead]
-  L -- Yes --> N[Convert to selected fan-profile model]
+  G --> Q{First qualifying sale complete?}
+  K --> Q
+  Q -- No --> M[Keep New/Working/Unqualified Lead]
+  Q -- Yes --> N[Set Qualified; convert under None Account]
   J --> O[Fan profile ready]
   N --> O
 ```
@@ -46,7 +50,9 @@ flowchart TB
 - If Consent Status is true, Consent Date and Consent Source are required; otherwise they may be blank.
 - Existing email, purchase, attendance, or import never implies affirmative consent.
 - Duplicate warnings allow explicit continuation; no silent creation, automatic block, or merge.
-- Shared fault screen shows `$Flow.FaultMessage` and never claims success after failure.
+- The Screen Flow is user initiated. Web and import paths use the same governed fields and duplicate coverage without entering an interactive screen.
+- Shared fault handling shows an actionable message, creates an owned exception Task where action is required, and never claims success after failure.
+- Convert only after the first qualifying sale; create or relate the qualifying Opportunity and its primary purchasing-fan Opportunity Contact Role.
 
 ## Acceptance checks
 

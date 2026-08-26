@@ -24,7 +24,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  H[Supporter Program<br/>Fan - Current Membership Tier - Status - Renewal Date - VIP Eligible]
+  H[Membership/VIP panel on Contact<br/>Fan - Current Membership Tier - Status - Renewal Date - VIP Eligible]
   H --> V[Value and eligibility<br/>Fan Tier - True Fan Score - Lifetime Revenue - attendance/engagement]
   H --> O[Related purchase/offer<br/>Product - Opportunity - Campaign - fulfillment]
   V --> T[Upcoming work<br/>Renewal reminders - VIP actions - benefit fulfillment - exceptions]
@@ -39,6 +39,7 @@ flowchart TB
 - VIP Eligible creates an audience, not an entitlement by itself.
 - One reminder Task per renewal outcome; repeat evaluations must not duplicate work.
 - No payment-card data or unnecessary benefit-detail custom objects.
+- This is a Contact panel/section with standard related lists for Opportunities, Campaigns, and Tasks; it does not imply a Membership custom object.
 
 ## Acceptance checks
 
