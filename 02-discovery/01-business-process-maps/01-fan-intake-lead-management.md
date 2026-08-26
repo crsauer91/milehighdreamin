@@ -18,8 +18,8 @@ flowchart TD
     N -- Keep separate --> M
     N -- Existing fan --> O[Update reviewed survivor without losing consent or history]
     M --> P[Review or enrich Lead as Working]
-    P --> Q{Qualified as known fan?}
-    Q -- No --> R[Set Unqualified or keep Working with reason]
+    P --> Q{First qualifying sale complete?}
+    Q -- No --> R[Keep Working or set Unqualified with reason]
     Q -- Yes --> S[Set Qualified and convert]
     S --> T[Create or select Contact under approved Account model]
     T --> U[Map source, channel, consent, market, and preference fields]

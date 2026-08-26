@@ -36,12 +36,17 @@ Documenting the approach of the implementation.
 
 Documenting the research into independent artists.
 
+- [Discovery index and reading order](02-discovery/README.md)
+- [Discovery questionnaire](02-discovery/01-discovery-questionnaire.md)
+- [Hybrid execution framework](02-discovery/03-execution-framework/README.md)
 - [Prebuild gates](02-discovery/02-prebuild-gates)
 - [Four-phase Salesforce business process maps](02-discovery/01-business-process-maps/README.md)
 
 ## Client Briefs
 
 Documenting changes in approach given a different artist persona.
+
+- [Client brief index](02-discovery/02-client-briefs/README.md)
 
 ## Design
 

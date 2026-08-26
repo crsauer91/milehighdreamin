@@ -7,7 +7,7 @@ Align Salesforce scope to the operating reality of an independent musician. Comb
 ## Shared Baseline for Bootstrapped Implementations
 
 - Use built-in Salesforce functionality wherever possible.
-- Start with Lead, Contact or Person Account, Campaign, Campaign Member, Opportunity, Opportunity Product, Product, Case, and Task.
+- Start with Account, Lead, Contact, Campaign, Campaign Member, Opportunity, Opportunity Contact Role, Opportunity Product, Product, Price Book, Case, and Task.
 - Use Flow instead of Apex unless standard automation is proven insufficient.
 - Defer Marketing Cloud, Experience Cloud, Data Cloud, and custom objects unless business value is clear.
 - Treat duplicate management, consent, and dashboard adoption as core success conditions.
@@ -17,7 +17,7 @@ Align Salesforce scope to the operating reality of an independent musician. Comb
 | Pattern Need | Preferred Standard Object | Why |
 | --- | --- | --- |
 | Unknown fan capture | Lead | Cheapest standard intake object |
-| Known supporter profile | Contact or Person Account | Central fan record |
+| Known supporter profile | Contact under the shared **None** Account | Canonical fan record without Person Accounts |
 | Release, show, or launch | Campaign | Flexible and reportable |
 | Attendance or response | Campaign Member | Built-in participation tracking |
 | Direct sale or premium package | Opportunity | Standard revenue tracking |

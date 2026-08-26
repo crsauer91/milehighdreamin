@@ -33,4 +33,4 @@ Phases 1 and 2 establish the full MVP, including Membership/VIP and Cases. Phase
 
 The set covers all seven core automations in `01-strategy/02-implementation-plan.md`: New Fan Intake, Lead Conversion Follow-Through, Purchase Update, Fan Tier & Lapsed Evaluation, Campaign Member Follow-Up, Membership Renewal, and Case Triage. It also covers consent, duplicate review, the weekly dashboard ritual, release governance, and the Phase 4 enhancement gate.
 
-The dated PDFs in this folder are retained as legacy visual references. The numbered Markdown files are the maintainable source of truth for future map changes.
+The numbered Markdown files are the maintainable source of truth for future map changes.
