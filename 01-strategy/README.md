@@ -10,6 +10,8 @@ This section is the authoritative, frozen strategy framework for the Mile High D
 4. [Risk register](04-risk-register.md) — blank framework populated by each implementation executor.
 5. [Decision register](05-decision-register.md) — authoritative approved decisions and future supersession history.
 
+Related execution framework: [Prebuild gates](../02-discovery/02-prebuild-gates).
+
 ## Authority
 
 - Approved decisions in the decision register control when another document is ambiguous.
