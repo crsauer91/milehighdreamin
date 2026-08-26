@@ -9,7 +9,7 @@ Trust and data quality come first. Automation is narrow and secondary. The archi
 1. [Strategy](01-strategy/README.md) — authoritative scope, architecture, implementation plan, admin runbook, risks, and decisions.
 2. [Discovery](02-discovery/README.md) — questionnaire, client briefs, process maps, reusable execution framework, prebuild gates, mappings, KPIs, and import templates.
 3. [Design](03-design/README.md) — solution architecture and desktop Salesforce wireframes translating approved strategy and discovery into implementation-ready design.
-4. [Implementation](04-implementation/README.md) — executor landing page and expected implementation outputs.
+4. [Implementation](04-implementation/README.md) — reusable build, test, release, rollback, and implementation-evidence framework.
 
 ## Strategy
 
@@ -36,5 +36,8 @@ Trust and data quality come first. Automation is narrow and secondary. The archi
 ## Implementation
 
 - [Implementation index](04-implementation/README.md)
+- [Build checklist](04-implementation/01-build-checklist.md)
+- [UAT and regression matrix](04-implementation/07-uat-and-regression-matrix.md)
+- [Deployment checklist](04-implementation/08-deployment-checklist.md)
 
 This repository is a reusable framework. Client data, credentials, completed gate evidence, named implementation owners, and deployable org-specific metadata belong in the executor's secured implementation workspace.

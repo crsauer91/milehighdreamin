@@ -110,7 +110,6 @@ Unknown or lightly qualified fans from forms, contests, event scans, or imports.
   
 Key fields:  
 * Lead Source  
-* Acquisition Channel  
 * Consent Status  
 * Consent Date  
 * Consent Source  
@@ -144,7 +143,7 @@ Represents:
 * crowdfunding;  
 * fan-club initiatives;  
 * VIP offers;  
-* livestreams.  
+* livestreams, represented as `Show` unless an approved reporting requirement establishes a separate Campaign Type.  
   
 Use parent/child Campaigns where hierarchy is useful.  
   

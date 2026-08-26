@@ -37,7 +37,7 @@ flowchart LR
 flowchart TB
   H[New Fan Intake<br/>Step indicator - Cancel]
   H --> I[1 Identity<br/>First Name - Last Name* - Email* - Home Market]
-  I --> S[2 Source<br/>Lead Source* - Acquisition Channel* - Campaign]
+  I --> S[2 Source<br/>Lead Source* - Campaign]
   S --> C[3 Consent<br/>Consent Status - conditional Consent Date/Source - Preferred Channel]
   C --> D[4 Duplicate Review<br/>matches - signals - acknowledgement - action]
   D --> R[5 Result<br/>Lead/Contact link - owner - status - next action - errors]
@@ -50,6 +50,7 @@ flowchart TB
 - If Consent Status is true, Consent Date and Consent Source are required; otherwise they may be blank.
 - Existing email, purchase, attendance, or import never implies affirmative consent.
 - Duplicate warnings allow explicit continuation; no silent creation, automatic block, or merge.
+- Standard `LeadSource` is the single acquisition-source field; do not add a redundant Acquisition Channel field without an approved separate business question.
 - The Screen Flow is user initiated. Web and import paths use the same governed fields and duplicate coverage without entering an interactive screen.
 - Shared fault handling shows an actionable message, creates an owned exception Task where action is required, and never claims success after failure.
 - Convert only after the first qualifying sale; create or relate the qualifying Opportunity and its primary purchasing-fan Opportunity Contact Role.
@@ -57,4 +58,4 @@ flowchart TB
 ## Acceptance checks
 
 - Clean, duplicate, Lead-to-Contact, conversion, consent, import, and fault scenarios match the runbook UAT cases.
-- Source, acquisition channel, consent, owner, and campaign context survive conversion.
+- Lead Source, consent, owner, and campaign context survive conversion.

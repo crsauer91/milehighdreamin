@@ -66,4 +66,4 @@ Use standard reports and dashboards wherever possible. Counts exclude deleted te
 - Keep one definition per KPI; do not create near-duplicate measures.
 - Segment only when it changes an action: market, Campaign, product, revenue channel, fan tier, or membership status.
 - Review the dashboard in ten minutes or less and leave with no more than three actions.
-- Thresholds for True Fan score, lapsed status, VIP eligibility, and renewal window remain configurable but must be documented before activation.
+- Thresholds for True Fan score, lapsed status, VIP eligibility, and renewal window remain configurable and must pass the implementation decision gates before dependent automation or reporting is activated. Do not infer or invent values.
