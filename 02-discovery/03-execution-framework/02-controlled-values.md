@@ -6,7 +6,7 @@ These values preserve repository terminology. Values marked **Framework default*
 
 | Field | Values | Source |
 |---|---|---|
-| Fan Tier | Listener; Buyer; Repeat Buyer; True Fan; Patron; Lapsed | Admin runbook |
+| Fan Tier | Listener; Buyer; Repeat Buyer; True Fan; Patron | Org strategy; the separate Lapsed Fan Flag controls inactivity |
 | Lead Status | New; Working; Qualified; Unqualified | Admin runbook |
 | Lead Source / Acquisition Channel | Website / Direct Signup; Live Event; Social / Content; Commerce / Purchase; Referral / Other | Admin runbook |
 | Preferred Channel | Email; SMS/Text; Social; In Person; No Preference | Admin runbook |
