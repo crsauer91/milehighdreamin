@@ -1,4 +1,6 @@
 # 01-org-strategy  
+
+[Strategy index](README.md) · [Implementation plan](02-implementation-plan.md) · [Admin runbook](03-admin-runbook-mile-high-dreamin-admin-playbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
   
 ## Executive Strategy  
   
@@ -100,11 +102,11 @@ Persona-specific and business-model-specific extensions should sit on top of the
   
 ## Core Data Model  
 
-Use the standard **Account + Contact** model. Contacts are the canonical fan records. Do not enable or use Person Accounts for this implementation. Use one governed household/individual placeholder Account pattern where a Contact does not have a meaningful organization relationship.  
+Use the standard **Account + Contact** model. Contacts are the canonical fan records. Do not enable or use Person Accounts. Fan Contacts use the shared Account named **None**. Create a different Account manually only when the person is acting as a businessperson or organizational relationship rather than as a fan. During standard fan Lead conversion, select the existing **None** Account; never create a new Account for an ordinary fan.  
   
 ### Lead  
   
-Unknown or lightly qualified fans from forms, contests, event scans, or imports.  
+Unknown or lightly qualified fans from forms, contests, event scans, or imports. A Lead converts only upon the fan's first qualifying sale.  
   
 Key fields:  
 * Lead Source  
@@ -185,6 +187,21 @@ Key fields:
 ### Direct Revenue Definition
 
 **Direct revenue** is take-home revenue retained by the artist after transaction/platform fees and taxes. Exclude collected taxes, refunded amounts, chargebacks, and payment or marketplace fees. Shipping collected from a fan is excluded unless it exceeds the artist's actual shipping cost; only the retained difference qualifies. Record adjustments consistently so Salesforce reporting reflects the amount the artist keeps, not gross sales volume.
+
+For each qualifying transaction, record:
+
+* Gross Transaction Amount, including tax and shipping charged;
+* Tax Amount collected, withheld, or remitted for that transaction;
+* Platform / Payment Fees;
+* Refunds / Chargebacks;
+* Shipping Collected;
+* Shipping Cost.
+
+Calculate:
+
+`Direct Revenue = Gross Transaction Amount - Tax Amount - Platform / Payment Fees - Refunds / Chargebacks - MIN(Shipping Collected, Shipping Cost)`
+
+Store the result in Opportunity Amount. Negative adjustments remain negative so annual reporting is not overstated. The commerce/payment or accounting platform remains the financial system of record; Salesforce stores the reconciled reporting value.
 
 The annual direct-revenue goal is **$100,000**. Dashboards should show year-to-date take-home direct revenue, remaining amount to goal, and progress percentage.
   
@@ -292,7 +309,7 @@ Record implementation risks in [04-risk-register.md](04-risk-register.md). Keep 
 ## Dependencies  
   
 * Salesforce Developer org;  
-* standard Account + Contact model;  
+* standard Account + Contact model with the shared **None** Account for fans;  
 * source fan/revenue data;  
 * defined consent model;  
 * standardized source values;  
