@@ -28,7 +28,11 @@ Use standard reports and dashboards wherever possible. Counts exclude deleted te
 | Direct Revenue by Channel | Take-home revenue mix | Sum Closed Won Amount grouped by Revenue Channel |
 | Direct Revenue by Product | Take-home revenue by offer | Sum related Opportunity Product contribution grouped by Product |
 | Direct Revenue by Campaign | Take-home revenue attributable to a Campaign | Sum Closed Won Amount grouped by Campaign |
-| Direct vs Intermediated Revenue Share | Portion of tracked artist revenue retained as direct | Direct take-home revenue / total tracked revenue |
+| Direct vs Intermediated Revenue Share | Portion of tracked artist revenue retained as direct | Direct take-home revenue / total tracked revenue; use an accounting/platform denominator when intermediated revenue is not stored in Salesforce |
+| Revenue by Market | Revenue associated with the fan or Campaign market | Sum qualifying Opportunity Amount grouped by Home/ Campaign Market |
+| Revenue by Offer or Drop | Conversion and value of a discrete offer | Sum qualifying Opportunity Amount grouped by Product and Campaign |
+| Open Pipeline Value | Active licensing, commission, teaching, or booking potential | Sum Amount where Stage is Open, grouped by Revenue Channel |
+| Closed Professional Deal Value | Won licensing, commission, teaching, or booking value | Sum Closed Won Amount for those Revenue Channels |
 | Fan Growth | Change in identified fan base | Ending fan count - beginning fan count |
 | True Fan Emergence | Fans newly reaching True Fan or Patron | Count of tier changes into those values during period |
 | Lapsed Recovery Rate | Reviewed lapsed fans restored to active relationship | Recovered lapsed fans / lapsed fans receiving an approved action |
@@ -41,6 +45,13 @@ Use standard reports and dashboards wherever possible. Counts exclude deleted te
 | Crowdfunding Conversion | Backers from the measured audience | Purchased / Backed members / Sent / Invited members |
 | Attendee-to-Subscriber Conversion | Event attendees who become affirmatively consented known fans | Attendees later meeting consent criteria / Attended members |
 | Post-Show Purchase Conversion | Attendees who make a qualifying show-related purchase | Attendee Contacts with qualifying related purchase / Attended Contacts |
+| Repeat Attendance Rate | Attendees returning to another measured event | Contacts attending at least two measured events / Contacts attending at least one |
+| Repeat Backing Rate | Backers supporting more than one measured campaign | Contacts backing at least two crowdfunding Campaigns / Contacts backing at least one |
+| Follower-to-Known-Fan Conversion | Rented audience converted to an owned relationship | New affirmatively consented Leads/Contacts from the channel / documented external follower or reach denominator |
+| Content Conversion | Measured content audience taking the desired owned action | Responded members or qualifying conversions / documented content reach or measured Campaign audience |
+| Patron Retention | Existing Patrons remaining active | Patrons still active at period end / Patrons at period start |
+| Revenue by Program | Teaching/community value | Sum qualifying Amount grouped by program Campaign/Product |
+| Attendee-to-Member Conversion | Program/event attendees becoming members | Attendees reaching Active membership / attended Contacts |
 | Membership Renewal Rate | Due memberships renewed | Renewed memberships / memberships due |
 | Membership Churn Rate | Due memberships that lapse or cancel | Lapsed or Canceled memberships / memberships due |
 | VIP Uptake | Eligible supporters taking a VIP offer | VIP purchasers / eligible supporters offered |
