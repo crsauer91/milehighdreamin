@@ -36,6 +36,7 @@ Documenting the approach of the implementation.
 
 Documenting the research into independent artists.
 
+- [Prebuild gates](02-discovery/02-prebuild-gates)
 - [Four-phase Salesforce business process maps](02-discovery/01-business-process-maps/README.md)
 
 ## Client Briefs
