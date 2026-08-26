@@ -4,7 +4,7 @@
 | 2 | Enhancement acceptance rule defined | New requests must demonstrate value to revenue, retention, or trust |  |  |  |
 | 3 | No-code-first policy defined | Configuration and Flow are preferred; code requires documented justification |  |  |  |
 | 4 | Salesforce environment confirmed | Developer org provisioned; required Campaign, Flow, duplicate-management, Case, reporting, and dashboard capabilities verified |  |  |  |
-| 5 | Contact model finalized | Standard Account + Contact model, canonical Contact rule, placeholder Account pattern, and no-Person-Accounts decision documented |  |  |  |
+| 5 | Contact model finalized | Standard Account + Contact model, canonical Contact rule, shared **None** Account, businessperson exception, first-sale conversion rule, and no-Person-Accounts decision documented |  |  |  |
 | 6 | MFA and access controls confirmed | MFA enabled and least-privilege access model validated |  |  |  |
 | 7 | Privacy and data-minimization rules defined | Required PII approved and unnecessary or sensitive data excluded |  |  |  |
 | 8 | Consent model finalized | Consent Status, Source, Date, and channel rules documented |  |  |  |
@@ -14,7 +14,7 @@
 | 12 | Duplicate-management policy finalized | Matching logic, duplicate rules, merge authority, and review cadence documented |  |  |  |
 | 13 | Import templates prepared | CSV templates and field mappings prepared for initial loads |  |  |  |
 | 14 | Revenue object strategy finalized | Salesforce representation of direct purchases and revenue documented |  |  |  |
-| 15 | Revenue definition standardized | Take-home revenue after fees and taxes; refunds, chargebacks, shipping, adjustments, and $100,000 annual goal treatment documented |  |  |  |
+| 15 | Revenue definition standardized | Transaction fields, take-home equation, taxes, fees, refunds, chargebacks, shipping, negative adjustments, reconciliation source, and $100,000 annual goal documented |  |  |  |
 | 16 | Campaign model finalized | Campaign types, hierarchy, naming, and Campaign Member statuses documented |  |  |  |
 | 17 | Flow design standards defined | Naming, documentation, fault handling, and logging approach documented |  |  |  |
 | 18 | UAT scenarios defined | Tests cover intake, conversion, purchases, campaign response, lapsed-fan logic, membership renewal, VIP eligibility, Cases, privacy, and other in-scope processes |  |  |  |
