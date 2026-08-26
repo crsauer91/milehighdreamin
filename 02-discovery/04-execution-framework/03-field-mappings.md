@@ -1,14 +1,14 @@
 # Field Mappings
 
-The import templates use Salesforce API names. **Standard** means available on the named standard object. **Custom** means configure the field before importing. Confirm API names in the target org; do not change template headers silently.
+The import templates use Salesforce API names. **Standard** means available on the named standard object. **Custom** means configure the field before importing. Confirm API names in the target org; do not change template headers silently. Standard `LeadSource` is the single acquisition-source field; add no `Acquisition_Channel__c` unless an approved, separately defined business question requires it.
 
 ## Template column map
 
 | Template | Standard columns | Custom columns and defaults |
 |---|---|---|
 | Accounts | Name; Type; Website; Phone; BillingStreet; BillingCity; BillingState; BillingPostalCode; BillingCountry; Description | None. Create one shared Account named **None** before fan imports. |
-| Leads | FirstName; LastName; Company; Email; Phone; MobilePhone; Status; LeadSource; Street; City; State; PostalCode; Country; Description; HasOptedOutOfEmail; DoNotCall | Acquisition_Channel__c; Consent_Status__c; Consent_Date__c; Consent_Source__c; Home_Market__c; Preferred_Channel__c; Interest_Area__c; Source_Record_Key__c |
-| Contacts | FirstName; LastName; AccountId; Email; Phone; MobilePhone; HasOptedOutOfEmail; DoNotCall; MailingStreet; MailingCity; MailingState; MailingPostalCode; MailingCountry; Description | Fan_Tier__c; Lifetime_Direct_Revenue__c; First_Purchase_Date__c; Last_Purchase_Date__c; Last_Engagement_Date__c; Lapsed_Fan_Flag__c; True_Fan_Score__c; Preferred_Channel__c; Consent_Status__c; Consent_Date__c; Consent_Source__c; Original_Lead_Source__c; Acquisition_Channel__c; Home_Market__c; Favorite_Product_Era__c; Favorite_Product_Area__c; Current_Membership_Tier__c; Membership_Status__c; Membership_Renewal_Date__c; VIP_Eligible__c; Source_Record_Key__c |
+| Leads | FirstName; LastName; Company; Email; Phone; MobilePhone; Status; LeadSource; Street; City; State; PostalCode; Country; Description; HasOptedOutOfEmail; DoNotCall | Consent_Status__c; Consent_Date__c; Consent_Source__c; Home_Market__c; Preferred_Channel__c; Interest_Area__c; Source_Record_Key__c |
+| Contacts | FirstName; LastName; AccountId; Email; Phone; MobilePhone; HasOptedOutOfEmail; DoNotCall; MailingStreet; MailingCity; MailingState; MailingPostalCode; MailingCountry; Description | Fan_Tier__c; Lifetime_Direct_Revenue__c; First_Purchase_Date__c; Last_Purchase_Date__c; Last_Engagement_Date__c; Lapsed_Fan_Flag__c; True_Fan_Score__c; Preferred_Channel__c; Consent_Status__c; Consent_Date__c; Consent_Source__c; Original_Lead_Source__c; Home_Market__c; Favorite_Product_Era__c; Favorite_Product_Area__c; Current_Membership_Tier__c; Membership_Status__c; Membership_Renewal_Date__c; VIP_Eligible__c; Source_Record_Key__c |
 | Campaigns | Name; Type; Status; IsActive; StartDate; EndDate; ParentId; Description; ExpectedRevenue; BudgetedCost; ActualCost; ExpectedResponsePercent; NumberSent | Market__c; Goal__c; Primary_Offer__c; Direct_Revenue_Target__c; Actual_Direct_Revenue__c; Source_Record_Key__c |
 | Campaign Members | CampaignId; ContactId; LeadId; Status | Populate either ContactId or LeadId, never both. |
 | Products | Name; ProductCode; Family; Description; IsActive | None |
@@ -25,7 +25,6 @@ The import templates use Salesforce API names. **Standard** means available on t
 
 | API name | Type | Rule |
 |---|---|---|
-| Acquisition_Channel__c | Picklist | Use controlled values |
 | Consent_Status__c | Checkbox | Default FALSE |
 | Consent_Date__c | Date | Required when Consent_Status__c = TRUE |
 | Consent_Source__c | Picklist | Required when Consent_Status__c = TRUE |
@@ -50,7 +49,6 @@ The import templates use Salesforce API names. **Standard** means available on t
 | Consent_Date__c | Date | Required when consent is TRUE |
 | Consent_Source__c | Picklist | Required when consent is TRUE |
 | Original_Lead_Source__c | Picklist | Preserve LeadSource at conversion |
-| Acquisition_Channel__c | Picklist | Map from Lead at conversion |
 | Home_Market__c | Picklist | Map from Lead at conversion |
 | Favorite_Product_Era__c | Picklist | Optional |
 | Favorite_Product_Area__c | Picklist | Map Interest_Area__c where applicable |
@@ -105,7 +103,6 @@ Amount = Gross Transaction Amount - Tax Amount - Platform / Payment Fees - Refun
 | Lead | Contact |
 |---|---|
 | LeadSource | Original_Lead_Source__c |
-| Acquisition_Channel__c | Acquisition_Channel__c |
 | Consent_Status__c | Consent_Status__c |
 | Consent_Date__c | Consent_Date__c |
 | Consent_Source__c | Consent_Source__c |
