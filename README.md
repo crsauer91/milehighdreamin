@@ -25,6 +25,13 @@ This idea is an implementation of the theory of Kevin Kelly in his [1,000 True F
 
 Documenting the approach of the implementation.
 
+- [Strategy index and reading order](01-strategy/README.md)
+- [Org strategy](01-strategy/01-org-strategy.md)
+- [Implementation plan](01-strategy/02-implementation-plan.md)
+- [Admin runbook](01-strategy/03-admin-runbook-mile-high-dreamin-admin-playbook.md)
+- [Risk register](01-strategy/04-risk-register.md)
+- [Decision register](01-strategy/05-decision-register.md)
+
 ## Discovery
 
 Documenting the research into independent artists.
