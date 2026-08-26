@@ -17,6 +17,10 @@ flowchart TD
     L --> M
     E --> M
     M --> N[Report consent by source and investigate exceptions]
-    N --> O([Consent remains auditable])
+    N --> O[Track Status, Date, and Source changes with actor and time]
+    O --> P{Required evidence horizon exceeds standard history?}
+    P -- Yes --> Q[Export minimum event evidence to approved secured archive before expiry]
+    P -- No --> R[Retain standard field history]
+    Q --> S([Consent remains auditable])
+    R --> S
 ```
-
