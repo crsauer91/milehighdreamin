@@ -1,6 +1,6 @@
 # 01-org-strategy  
 
-[Strategy index](README.md) · [Implementation plan](02-implementation-plan.md) · [Admin runbook](03-admin-runbook-mile-high-dreamin-admin-playbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
+[Strategy index](README.md) · [Implementation plan](02-implementation-plan.md) · [Admin runbook](03-admin-runbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
   
 ## Executive Strategy  
   

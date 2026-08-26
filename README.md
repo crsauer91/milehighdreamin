@@ -1,58 +1,39 @@
-# README
+# Mile High Dreamin
 
-## Quick Navigation
+A lean, standard-first Salesforce framework for independent musicians based on Kevin Kelly's [1,000 True Fans](https://kk.org/thetechnium/1000-true-fans/) model.
 
-- [Summary](#summary)
-- [1,000 True Fans](#1000-true-fans)
-- [Strategy](#strategy)
-- [Discovery](#discovery)
-- [Client Briefs](#client-briefs)
-- [Design](#design)
-- [Implementation](#implementation)
-- [Presentation](#presentation)
+Trust and data quality come first. Automation is narrow and secondary. The architecture favors standard Salesforce, explicit consent, human duplicate review, and the smallest maintainable design that improves revenue, retention, or trust.
 
-## Summary
+## Repository order
 
-This lean single-person Salesforce implementation assumes a bootstrapped mentality and an aversion to customization. If this strategy proves viable, I will continue to develop it. Trust and data quality are paramount to the execution of this plan, with automation playing a secondary role. This idea is intentionally simple.
-
-I have arranged the deliverables in the same manner that they would be used during the development cycle.
-
-## 1,000 True Fans
-
-This idea is an implementation of the theory of Kevin Kelly in his [1,000 True Fans](https://kk.org/thetechnium/1000-true-fans/) essay. Please visit his site to support the work!
+1. [Strategy](01-strategy/README.md) — authoritative scope, architecture, implementation plan, admin runbook, risks, and decisions.
+2. [Discovery](02-discovery/README.md) — questionnaire, client briefs, process maps, reusable execution framework, prebuild gates, mappings, KPIs, and import templates.
+3. [Design](03-design/README.md) — desktop Salesforce wireframes aligned to the strategy and discovery processes.
+4. [Implementation](04-implementation/README.md) — executor landing page and expected implementation outputs.
 
 ## Strategy
 
-Documenting the approach of the implementation.
-
-- [Strategy index and reading order](01-strategy/README.md)
 - [Org strategy](01-strategy/01-org-strategy.md)
 - [Implementation plan](01-strategy/02-implementation-plan.md)
-- [Admin runbook](01-strategy/03-admin-runbook-mile-high-dreamin-admin-playbook.md)
+- [Admin runbook](01-strategy/03-admin-runbook.md)
 - [Risk register](01-strategy/04-risk-register.md)
 - [Decision register](01-strategy/05-decision-register.md)
 
 ## Discovery
 
-Documenting the research into independent artists.
-
-- [Prebuild gates](02-discovery/02-prebuild-gates)
-- [Four-phase Salesforce business process maps](02-discovery/01-business-process-maps/README.md)
-
-## Client Briefs
-
-Documenting changes in approach given a different artist persona.
+- [Discovery questionnaire](02-discovery/01-discovery-questionnaire.md)
+- [Client briefs](02-discovery/02-client-briefs/README.md)
+- [Business process maps](02-discovery/03-business-process-maps/README.md)
+- [Hybrid execution framework](02-discovery/04-execution-framework/README.md)
+- [Prebuild gates](02-discovery/05-prebuild-gates.md)
 
 ## Design
 
-Documenting an ideal approach to user experience.
-
-- [Salesforce business-process wireframes](03-design/02-wireframes/README.md)
+- [Design index](03-design/README.md)
+- [Salesforce wireframes](03-design/02-wireframes/README.md)
 
 ## Implementation
 
-Documenting how the plans are put to work. This section may not be fully complete as I overwrote some information on the fly, but a wide majority of it still exists.
+- [Implementation index](04-implementation/README.md)
 
-## Presentation
-
-Here is a link to the presentation that I did on this implementation for Mile High Dreamin’ 2026.
+This repository is a reusable framework. Client data, credentials, completed gate evidence, named implementation owners, and deployable org-specific metadata belong in the executor's secured implementation workspace.

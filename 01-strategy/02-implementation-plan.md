@@ -1,10 +1,10 @@
 # 02-implementation-plan  
 
-[Strategy index](README.md) · [Org strategy](01-org-strategy.md) · [Admin runbook](03-admin-runbook-mile-high-dreamin-admin-playbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
+[Strategy index](README.md) · [Org strategy](01-org-strategy.md) · [Admin runbook](03-admin-runbook.md) · [Risk register](04-risk-register.md) · [Decision register](05-decision-register.md)
   
 ## Core Automation  
   
-Keep Flows narrow: **one business outcome per automation where practical.**  
+Keep Flows narrow: **one business outcome per automation where practical.** The MVP includes nine automation outcomes. Consent Validation uses object-specific Lead and Contact implementations under one outcome.  
   
 1. **New Fan Intake**  
     * normalize source;  
@@ -14,21 +14,27 @@ Keep Flows narrow: **one business outcome per automation where practical.**
 2. **Lead Conversion Follow-Through**  
     * run only after the first qualifying sale;  
     * associate an ordinary fan with the existing **None** Account;  
-    * initialize fan profile/tier/score;  
-    * create welcome or follow-up action.  
-3. **Purchase Update**  
+    * initialize the fan profile;  
+    * create the welcome or follow-up action.  
+3. **Consent Validation**  
+    * enforce Date and Source when consent is affirmative;  
+    * preserve channel opt-outs;  
+    * prevent record existence, attendance, or purchase from creating consent.  
+4. **Purchase Update**  
     * update lifetime revenue;  
     * first/last purchase;  
     * repeat-buyer status;  
     * membership attributes where applicable.  
-4. **Fan Tier & Lapsed Evaluation**  
-    * scheduled evaluation of spend, recency, engagement, attendance, and score.  
-5. **Campaign Member Follow-Up**  
-    * tasks/actions for attendees, VIP prospects, backers, and other significant responses.  
-6. **Membership Renewal**  
+5. **Fan Tier Evaluation**  
+    * assign Listener, Buyer, Repeat Buyer, True Fan, or Patron from approved criteria.  
+6. **Lapsed Fan Evaluation**  
+    * maintain the separate Lapsed Fan Flag from approved inactivity and recovery rules.  
+7. **Campaign Member Follow-Up**  
+    * create actions for attendees, VIP prospects, backers, and other significant responses.  
+8. **Membership Renewal**  
     * identify upcoming renewals;  
-    * trigger reminders or tasks.  
-7. **Case Triage**  
+    * create one reminder or follow-up Task.  
+9. **Case Triage**  
     * assign queue/owner;  
     * set priority;  
     * escalate important fan issues.  

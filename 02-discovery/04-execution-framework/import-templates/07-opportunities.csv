@@ -1,0 +1,1 @@
+Name,AccountId,StageName,CloseDate,Amount,CampaignId,Type,LeadSource,Description,Gross_Transaction_Amount__c,Tax_Amount__c,Platform_Payment_Fees__c,Refunds_Chargebacks__c,Shipping_Collected__c,Shipping_Cost__c,Revenue_Channel__c,Order_Source__c,Fulfillment_Status__c,Purchase_Type__c,External_Order_Key__c

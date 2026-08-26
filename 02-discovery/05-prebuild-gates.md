@@ -1,3 +1,7 @@
+# Prebuild Gates
+
+Complete this table for the specific implementation. The reusable framework intentionally leaves Status, Evidence / Decision, and Owner blank.
+
 | # | Prebuild Gate | Pass Criteria | Status | Evidence / Decision | Owner |
 |---:|---|---|---|---|---|
 | 1 | MVP scope frozen | MVP backlog approved and explicit out-of-scope list documented |  |  |  |

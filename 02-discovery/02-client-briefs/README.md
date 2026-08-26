@@ -13,22 +13,24 @@ This directory contains separate client briefs for different artist personas and
 
 If a client spans multiple models, use the dominant revenue motion first and add secondary capabilities only after the core operating motion is stable. Use these briefs to reduce scope, not expand it.
 
+For the reusable framework that keeps every approved revenue motion available in the MVP, use the [Multi-Channel Independent Artist-Operator](../04-execution-framework/01-hybrid-persona-and-mvp.md).
+
 ## Persona Briefs
 
-- [Touring Singer-Songwriter](personas/01-touring-singer-songwriter.md)
-- [DIY Band](personas/02-diy-band.md)
-- [Producer or DJ](personas/03-producer-dj.md)
-- [Online Niche Creator](personas/04-online-niche-creator.md)
-- [Composer and Multi-Hyphenate Musician](personas/05-composer-multi-hyphenate.md)
+- [Touring Singer-Songwriter](02-personas/01-touring-singer-songwriter.md)
+- [DIY Band](02-personas/02-diy-band.md)
+- [Producer or DJ](02-personas/03-producer-dj.md)
+- [Online Niche Creator](02-personas/04-online-niche-creator.md)
+- [Composer and Multi-Hyphenate Musician](02-personas/05-composer-multi-hyphenate.md)
 
 ## Business Model Briefs
 
-- [Touring First](business-models/01-touring-first.md)
-- [Merch First](business-models/02-merch-first.md)
-- [Membership First](business-models/03-membership-first.md)
-- [Crowdfunding First](business-models/04-crowdfunding-first.md)
-- [Sync and Licensing First](business-models/05-sync-licensing-first.md)
-- [Teaching and Community First](business-models/06-teaching-community-first.md)
+- [Touring First](01-business-models/01-touring-first.md)
+- [Merch First](01-business-models/02-merch-first.md)
+- [Membership First](01-business-models/03-membership-first.md)
+- [Crowdfunding First](01-business-models/04-crowdfunding-first.md)
+- [Sync and Licensing First](01-business-models/05-sync-licensing-first.md)
+- [Teaching and Community First](01-business-models/06-teaching-community-first.md)
 
 ## Recommended Pattern Combinations
 
